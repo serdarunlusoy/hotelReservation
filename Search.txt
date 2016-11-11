@@ -2,6 +2,8 @@ Uses case name      : Search
 
 Participating actors: User, Registrar or Admin
 
+Priority            :High
+
 Entry Condition     : Initiator enters the site
 
 Exit Condition      : A search is queried.
