@@ -1,0 +1,14 @@
+Uses case name      : DisplayReservations
+
+Participating actors: Initiated by User
+
+Entry Condition     : User logs in to the webpage.
+
+Exit Condition      : User successfully sees the reservations.
+
+Flow of Events      : 1. User clicks on the Display Reservations button.
+                      2. System displays the Reservations page.
+                      3. User sees the reservations.  
+
+Objects: - Display Reservations button
+         - Reservations page
