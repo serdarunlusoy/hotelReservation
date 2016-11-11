@@ -1,0 +1,13 @@
+Use Case Name : Cancel Reservation
+
+Participating Actor    : User
+
+Entry Condition        : User displays his/her reservations and s/he has at least one reservation.
+
+Exit Condition         : User successfully cancels his/her reservation.
+
+Flow of Events         : 1. User clicks on the cancel reservation button.
+			 2. System cancels the reservation and displays a feedback message.
+
+
+Objects                : user, cancel reservation button, feedback message
