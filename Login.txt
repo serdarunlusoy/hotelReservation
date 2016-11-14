@@ -20,5 +20,4 @@ Objects: - Main page
          - Login button
          - Confirm button
          - Hotel Page
-         - Hotel User
          
