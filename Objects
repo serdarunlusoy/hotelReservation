@@ -1,0 +1,24 @@
+Entity:
+
+User
+Admin
+Hotel User
+Registrant
+
+
+
+Boundry:
+
+Awaiting Registrations List
+Hotel Registration Form
+Reservation Form
+Display Reservations Page
+Main Page
+Login Page
+Registration Page
+	Normal Registration Form
+Search Page
+Search List
+
+
+Control:
