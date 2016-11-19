@@ -8,12 +8,12 @@ Exit Condition      : Initiator picks a hotel of his/her choice.
 
 Flow of Events      : 1. The initiator types for a search and fills one or more entries of
                          the 'Advanced Search Form'.
-                      4. The initiator clicks the "Search" button. The system redirects the
+                      2. The initiator clicks the "Search" button. The system redirects the
                          user to the results page.
-                      5. System displays a list of hotels fitting the initiator's search.
+                      3. System displays a list of hotels fitting the initiator's search.
                          If no fitting hotels are found, a 'can't be found' message is 
                          displayed.
-                      5. The initator picks a hotel of his/her choice and is redirected to
+                      4. The initator picks a hotel of his/her choice and is redirected to
                          the hotel's reservation page.
 
 Objects             : user, registrar, admin, search button, advanced search form, search
