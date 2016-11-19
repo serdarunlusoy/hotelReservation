@@ -13,7 +13,7 @@ Flow of Events      : 1. The initiator types for a search and clicks the search 
                          no fitting hotels are found, a 'can't be found' message is
                          displayed.
                       3. The initator picks a hotel of his/her choice and is redirected to
-                      the hotel's reservation page.
+                      the hotel's information page.
 
 Objects             : user, registrar, admin, search page, search bar,
                       search button, search list, reservation page
