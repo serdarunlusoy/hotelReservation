@@ -6,7 +6,7 @@ Priority            :High
 
 Entry Condition     : Initiator enters the site
 
-Exit Condition      : A search is queried.
+Exit Condition      : Initiator picks a hotel of his/her choice.
 
 Flow of Events      : 1. The initiator types for a search and clicks the search button.
                       2. System displays a list of hotels fitting the initator's search. If
