@@ -2,20 +2,17 @@ Uses case name      : Advanced Search
 
 Participating actors: User, Registrar or Admin
 
-Entry Condition     : Initiator clicks the 'Advanced Search' button
+Entry Condition     : Initiator enters the 'Search Page'.
 
 Exit Condition      : Initiator picks a hotel of his/her choice.
 
-Flow of Events      : 1. The initiator clicks the 'Advanced Search' button.
-                      2. System redirects the initiator to the 'Advanced Search Page'.
-                      3. The initiator fills an 'Advanced Search Form' as he/she desires.
-                         The form does not have to be filled completely.
-                      4. The initiator clicks the "Go!" button. The system displays a list
-                         of hotels fitting the initiator's search. If
-                         no fitting hotels are found, a 'can't be found' message is
-                         displayed.
+Flow of Events      : 1. The initiator types for a search and fills one or more entries of
+                         the 'Advanced Search Form'.
+                      4. The initiator clicks the "Search" button. The system displays a
+                         list of hotels fitting the initiator's search. If no fitting
+                         hotels are found, a 'can't be found' message is displayed.
                       5. The initator picks a hotel of his/her choice and is redirected to
                          the hotel's reservation page.
 
-Objects             : user, registrar, admin, advanced search button, advanced search page,
-                      advanced search form, go! button, search list, reservation page
+Objects             : user, registrar, admin, search button, advanced search form, search
+                      button, search list, reservation page
