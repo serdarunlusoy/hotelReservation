@@ -9,11 +9,12 @@ Entry Condition     : Initiator enters the site
 Exit Condition      : Initiator picks a hotel of his/her choice.
 
 Flow of Events      : 1. The initiator types for a search and clicks the search button.
-                      2. System displays a list of hotels fitting the initator's search. If
+                      2. System redirects the user to the results page.
+                      3. System displays a list of hotels fitting the initator's search. If
                          no fitting hotels are found, a 'can't be found' message is
                          displayed.
                       3. The initator picks a hotel of his/her choice and is redirected to
-                      the hotel's information page.
+                         the hotel's information page.
 
-Objects             : user, registrar, admin, search page, search bar,
-                      search button, search list, reservation page
+Objects             : user, registrar, admin, search page, search bar, results page,
+                      search button, results list, reservation page
