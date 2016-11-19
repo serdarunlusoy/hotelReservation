@@ -18,4 +18,4 @@ Flow of Events      : 1. The initiator clicks the 'Advanced Search' button.
                          the hotel's reservation page.
 
 Objects             : user, registrar, admin, advanced search button, advanced search page,
-advanced search form, go! button, search list, reservation page
+                      advanced search form, go! button, search list, reservation page
