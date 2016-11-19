@@ -1,8 +1,8 @@
-9Uses case name      : MakeReservation
+Use case name      : MakeReservation
 
 Participating actors: Initiated by User
 
-Entry Conditions    : User searches and finds the hotels he/she wants and logs in.
+Entry Conditions    : User searches and finds the hotel he/she wants to make a reservation.
 
 Exit Condition      : User gets notified about reservation.
 Flow of Events      : 
