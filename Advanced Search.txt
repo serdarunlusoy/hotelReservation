@@ -1,0 +1,15 @@
+Scenario Name       : Searching in Detail
+
+Participating Actors: Halil: User
+
+Flow of Events      : 1. Halil wants to search for hotels in Alexandria for 3 people,
+                         seperated in to two rooms.
+                      2. Halil opens the main page.
+                      3. Halil types 'Alexandria' in the search bar.
+                      4. Halil choses 3 for 'People Count' choice and 2 for the 'Room 
+                         Count' choice.
+                      4. Halil clicks the 'Search' button.
+                      5. System lists hotels whose locations are Alexandria and fit 
+                         Halil's information.
+                      6. After deciding on a hotel, Halil clicks it's 'Information Page'
+                         button.
