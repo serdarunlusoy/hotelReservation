@@ -1,0 +1,10 @@
+Scenario Name:aliWantsToRegister
+
+Participating Actor Instance(s):Ali:User
+
+Flow of Events:
+1)Ali decided to register on to Hotel Reservation System so he visited the main webpage.
+2)Ali saw the register button on the upper right corner and clicked on it.
+3)The register page opened and Ali selected user registration.
+4)User registration form has show up ,Ali filed the form and clicked on complete.
+5)A message appeared on the screen"You have successfully registered as a user."
