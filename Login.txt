@@ -2,22 +2,22 @@ Uses case name      : Login
 
 Participating actors: Initiated by User
 
-Entry Condition     : User opens the webpage
+Entry Condition     : User opens the website
 
 Exit Condition      : User successfully logs in
 
 Flow of Events      : 1. User clicks on the log in button.
                       2. System displays the login page.
                       3. User enters his/her name and password and clicks on the confirm button.
-                      4. System redirects the user who logged in to the hotel page if it is a hotel user. 
+                      4. System redirects the user who logged in to the hotel information page if it is a hotel user. 
                          Otherwise, it redirects the person to the main page if it is a user.     
 Exceptional Cases:
-If user enters invalid credentials at step 3 system initiates "DisplayError" use case.
+If user enters invalid credentials at step 3 system initiates "Display Error" use case.
 
 
 Objects: - Main page
          - Login page
          - Login button
          - Confirm button
-         - Hotel Page
+         - Hotel Information Page
          
