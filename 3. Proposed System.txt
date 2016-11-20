@@ -1,0 +1,4 @@
+- The main functionality of our system is to simplify the hotel reservation process by helping
+  the users to find their desired hotels and make their reservations, and provide a platform for
+  the hotel users to inform the users about their hotels. 
+  
