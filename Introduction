@@ -26,3 +26,20 @@ aimed some criteria for the pleasure of client. The most important one of these 
 and ease of the transition between the objects in the system are aimed. With the ease, the other criteria is the fastness of
 the transition process between the objects. These two criteria are the most important ones that’s why these two criteria has
 been aimed for the client’s benefit.
+
+
+
+Definitions, Acronyms, and Abbreviations
+HRS : Hotel Reservation System
+
+
+Overview
+
+    This document includes five parts ; introduction, proposed system(except packaging and legal), system models, glossary and 
+  references. This part contains some general information like objective and success criteria of the project and also some 
+  definitions and acronyms that are related to the project.
+    This is a brand new system so there is no old system. Parts of this document explains all the features of our system.
+  In the Overview part the system is explained in detail. Functional Requirements part tells about the use cases of the system.
+  Everything related to activities of users explained. Obligations and boundaries are mentioned in Nonfunctional Requirement 
+  part. Finally, diagrams, use cases and scenarios are placed in System Model part.
+    In the other part of this RAD, a glossary is shown about the whole system.And in the final part there is a References section.
