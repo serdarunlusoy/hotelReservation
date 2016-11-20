@@ -2,7 +2,7 @@
 
 ~Usability requiremets for HRS
 
--Understable, short and helpful instructions should guide a user through his/her reservation process.
+- Understandable, short and helpful instructions should guide a user through his/her reservation process.
 - Site functions that are not available to a user should not be displayed to him/her.
 - The user should be able to login or register from all pages of the site he/she can access. If already logged in, the user should be able to logout likewise.
 - The search page should be easy to find or return to from different pages of the site.
