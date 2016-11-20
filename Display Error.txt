@@ -1,0 +1,25 @@
+Scenario Name       : Making a login error
+
+Participating Actors: Tang: Admin
+
+Flow of Events      : 1. Tang wants to login to the website.
+                      2. Tang opens the MainPage.
+                      3. Tang clicks the 'Login' button and gets redirected to the login
+                         page.
+                      4. Tang enters his username and password but makes a mistake and
+                         enters a wrong username. He clicks the 'Confirm' button.
+                      5. System checks Tang's information and sees no registered users
+                         with the entered username.
+                      6. The System displays an error dialog that says "No such username 
+                         exists." Tang closes the dialog window.
+                      7. Tang enters his username correctly but this time, makes a mistake
+                         entering his password and only enters it's last 3 characters.
+                         He clicks the 'Confirm' button.
+                      8. System checks Tang's information and sees that the given
+                         username's password does not match the stored one.
+                      6. The System displays an error dialog that says "Wrong password." 
+                         Tang closes the dialog window.
+                      4. Tang enters his username and password - both correctly - and 
+                         clicks on the 'Confirm' button.
+                      5. After checking the given username and password, System logs Tang
+                         in to the website.
