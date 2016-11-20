@@ -1,0 +1,17 @@
+Senario Name: Make Reservation
+Participating Actor Instances: Çağla: Visitor
+			          
+Flow of Event:	
+              1.Çağla clicks the make reservation button.
+              2.System opens a reservation form.
+              3.Çağla fills the fields of the reservation form after the reservation form
+              window loaded.
+              4.System displays the price to user.
+              5.After seeing the price of the reservation Çağla thinks that the
+              price is convinient and cliks the OK button.
+              6.System checks availability of the information on the form and if 
+              available confirms the reservation .
+              7.If not available, system displays an make reservation error message and displays 
+              the reservation form again with problem highlighted areas and user changes the
+              information on the form then continues with step 5.
+              
