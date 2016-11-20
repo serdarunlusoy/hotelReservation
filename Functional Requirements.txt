@@ -1,0 +1,52 @@
+  ** Registration **
+
+- A user shall register to the website, choosing the normal registration option. Afterwards,
+  the user has to fill the user registration form which requires a username, a name, a password, 
+  an email and a phone number.
+- An hotel user shall register to the website, choosing the hotel registration option. After 
+  choosing the option, the hotel user has to fill the hotel registration form that requires
+  an hotel name and a registration code which the registrar needs, to be able to verify the 
+  validity of the hotel.
+  
+  ** Search / Advanced search / Hotel Information ** 
+
+- On the main page, a user shall search for a hotel, according to several search options or 
+  with just a free-text search option. The search options are dates, price interval, destination
+  and hotel type. A user should be able to do search with as many of the fields required.
+- The user should be able to see the search results on the results page as a list. Each hotel 
+  fitting the user's search should be represented as an element within the list. Each element 
+  should include the hotel's name, type, location and price by default.
+- If the user chooses an hotel from the result list, he/she should be directed to the 
+  hotel information page which contains photos of the hotel and some detailed information about 
+  the hotel.
+
+  ** Reservation **
+
+- On the hotel information page or the display reservations page, the user should be given 
+  the option to make a reservation. If the user logged in to the website, this option should 
+  display the hotel reservation form which requires the user to enter the reservation information 
+  that includes check-in and check-out dates, count of the people that will stay and count of 
+  the rooms that will be reserved. After filling this form, the user should be able to see 
+  a price according to the information he/she provided.
+
+  ** Displaying/Editing/Canceling Reservations **
+
+- On the main page, the user should be given an option to display his/her reservations. This 
+  option should open the display reservations page which should show the reservations as a list.
+- The user should see the options of editing and canceling for each individual reservation.
+  The user can edit the check-in and check-out dates, the count of people or the count of 
+  rooms through the edit reservation option or cancel the reservation through the cancel 
+  reservation option.
+
+  ** Approving Hotel Registration **
+
+- After an hotel registration, the registrar should be able to accept or refuse the application
+  according to the validity of the registration code which the hotel user provided during the 
+  hotel registration process.
+
+  ** Updating the Hotel Information **
+
+- An hotel user should be able to update the information of his/her hotel. 
+
+  
+   
