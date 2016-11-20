@@ -1,0 +1,44 @@
+-------------------------------Non-functional Requirements
+
+~Usability requiremets for HRS
+
+-Understable, short and helpful instructions should guide a user through his/her reservation process.
+- Site functions that are not available to a user should not be displayed to him/her.
+- The user should be able to login or register from all pages of the site he/she can access. If already logged in, the user should be able to logout likewise.
+- The search page should be easy to find or return to from different pages of the site.
+- The difference between 'Advanced Search' and 'Search' usecases should be seamless for the user.
+- The search results provided for the user should be easy to understand and navigate. The user should be able to order the listed results according to different criteria.
+- The user should be able to access the hotel he/she picked from the search results page through a single click.
+- The hotel information page should have a link for easy access and shareability.
+
+
+~Reliability requirements for HRS
+
+- HRS should reliably give fitting results on a search.
+- HRS should make no scheduling errors while making reservations.
+
+
+~Performance requirements for HRS
+
+- HRS should be able to complete a search in no more than 3 seconds, 100% of the time.
+- HRS should be able to complete a login in no more than 3 seconds, 100% of the time.
+- The system should be up %95 of the time (network failures disregarded).
+- The system should be connected to the Internet.
+
+
+~Supportability requirements for HRS
+
+- The site should be easy to extend. It should be coded in a way that it is allows for easy implementation of new functions.
+- The site should have a test environment for local testing of it's functions.
+
+
+~Implementation requirements for HRS
+
+- The frontend software related with the system should be written using HTML, CSS and Javascript while the backend is written using MySQL.
+
+
+~Interface requirements for HRS
+
+- To use HRS, you require a Web browser. The system should display perfectly on supported Web browsers, which are:
+  >Google Chrome
+  >Mozilla Firefox
