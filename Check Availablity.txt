@@ -7,7 +7,7 @@ Entry Condition     : EditReservation or MakeReservation initiates
 Exit Condition      : Approve or reject reservation.
 
 Flow of Events      : 1. Reservation form is checked with the HotelDatabase to see if it's valid.
-                      2. If valid, a rejection flag is sent to EditReservation or MakeReservation.
-                         Else, aconfirmation flag is sent.
+                      2. If valid, the reservation is accepted and a confirmation message is sent
+                      to EditReservation or MakeReservation. A rejection message is sent otherwise.
 
-Object              : reservation form, hotel database
+Object              : reservation form, hotel database, confirmation message
