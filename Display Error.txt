@@ -4,7 +4,7 @@ Participating actors: Admin, Hotel User, Registrar or User
 
 Entry Condition     : Login initiates
 
-Exit Condition      : The Admin, Hotel User, Registrar or User receives the error and closes the Error dialog.
+Exit Condition      : The Admin, Hotel User, Registrar or User receives the error and closes the Login Error Message.
 
 Flow of Events      : 1. A Login Error Message is displayed to the Login initator.
                       2. Initiator acknowledges the dialog and closes the Login Error Message.
