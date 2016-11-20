@@ -8,11 +8,12 @@
   an hotel name and a registration code which the registrar needs, to be able to verify the 
   validity of the hotel.
   
-  ** Login **
+  ** Login / Logout **
   
 - On the main page, the user should be given an option to login to the website. This option 
   should open the login page. The user has to enter his/her username and password. If the 
   informations are wrong, the user should see an error message.
+- If the user logged in to the website, he/she should see an option to logout on the main page.
   
   ** Search / Advanced search / Hotel Information ** 
 
