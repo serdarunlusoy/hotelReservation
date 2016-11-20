@@ -1,0 +1,8 @@
+Senario Name: Cancel Reservation 
+Participating Actor Instances: Çağla: Visitor
+			          
+Flow of Event:
+              1.Çağla wants cancel reservation so she click the cancel button on the 
+              reservation page.
+              2.System cancels the reservation and displays a cancel reservation success
+              message.
