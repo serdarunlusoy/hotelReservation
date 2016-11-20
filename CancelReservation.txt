@@ -7,7 +7,7 @@ Entry Condition        : User displays his/her reservations and s/he has at leas
 Exit Condition         : User successfully cancels his/her reservation.
 
 Flow of Events         : 1. User clicks on the cancel reservation button.
-			 2. System cancels the reservation and displays a feedback message.
+			 2. System cancels the reservation and displays a cancel reservation success message.
 
 
-Objects                : user, cancel reservation button, feedback message
+Objects                : user, cancel reservation button, cancel reservation success message.
