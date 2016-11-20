@@ -1,0 +1,12 @@
+Scenario Name:Let's see what's waiting?
+
+Participating Actor Instance(s):Mehmet:Registrant
+
+Flow Events
+
+1)Mehmet opened the main page and logged in in order to check the registrations
+2)Mehmet clicked on Check Registrations button and registrations webpage opened.
+3)Mehmet saw the Ayşe's Hotel's name and clicked on Open Form button.
+4)Ayşe's registration form opened and Mehmet checked the information.
+5)He saw that everything is correct including the code he gave to her so he clicked on Approve Form button.
+6)Form has closed.
