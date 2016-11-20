@@ -7,7 +7,7 @@ Entry Condition     : Hotel User clicks the 'Update Information' button
 
 Exit Condition      : Registrar aproves or rejects the new Hotel Registration Form.
 
-Flow of Events      : 1. System redirects the user to the Hotel Registration Page and
+Flow of Events      : 1. System redirects the user to the Registration Page and
                          displays the Hotel Registration Form already registered for the 
                          Hotel User.
                       2. Hotel User makes changes to the form he/she wants and clicks the
