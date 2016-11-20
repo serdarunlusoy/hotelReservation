@@ -6,8 +6,8 @@ Entry Condition     : Initiated by system in "Hotel Registration" use case by gi
 
 Exit Condition      : Approve or reject the "Hotel Registration Form".
 
-Flow of Events      : 1. Registrar checks the "Awaiting Registrations List" by clicking on "Check Registrations Button" on the "MainPage".
-                      		2. System opens the "Awaiting Registrations Page".
+Flow of Events      : 1. Registrar checks the "Registrations List" by clicking on "Check Registrations Button" on the "MainPage".
+                      		2. System opens the "Registrations Page".
 		      3.Registrar clicks on "Open Form" button.
 				4. System displays the "Hotel Registration Form"
 		      5.1.Registrar reads the "Hotel Registration Form" and if it's registration code field is correct s/he approves the "Hotel Registration Form" by clicking "Approve Button".
@@ -15,5 +15,5 @@ Flow of Events      : 1. Registrar checks the "Awaiting Registrations List" by c
 		      5.2.Else if the registration code field in the form at step 5.1 is incorrect registrar rejects the form by clicking "Reject Button".  
 				6.2.System displays the message "Form Rejected.".
 
-Objects:"Awaiting Registrations List","Hotel Registration Form","Approve Button","Reject Button","Check Registrations Button","Open Form Button"
+Objects:"Registrations List","Hotel Registration Form","Approve Button","Reject Button","Check Registrations Button","Open Form Button"
 
