@@ -17,4 +17,4 @@ Flow of Events      : 1. The initiator types for a search and clicks the search 
                          the hotel's information page.
 
 Objects             : user, registrar, admin, search page, search bar, results page,
-                      search button, search results list, reservation page
+                      search button, search results list, hotel information page
