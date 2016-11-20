@@ -16,7 +16,7 @@ FLow of Events:
 1)After the selection in entry condition system displays "Hotel Registration Form".
 	2)"HotelUser" fills the "Hotel Registration Form" and clicks on "Complete Button".
 
-3)System sends the "Hotel Registration Form" to "Manage Registration" use case and displays the message "Your registration form has taken and waiting for an approve from the registrar."
+3)System sends the "Hotel Registration Form" to "Manage Registration" use case and displays "HotelRegisterSuccess" message
 
 
-Objects:"Hotel Registration Form","Hotel User","Complete Button".
+Objects:"Hotel Registration Form","Hotel User","Complete Button","HotelRegisterSuccessMessage".
