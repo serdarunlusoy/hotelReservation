@@ -1,0 +1,10 @@
+Scenario name      : Loging out from the website
+
+
+Participating Actor: Ece: User
+
+
+
+Flow of Events     : 1. Ece completed her reservations and she wants to logout.
+ 		     2. She goes to the main page and clicks on the logout button.
+                     3. System logs Ece out from the website.

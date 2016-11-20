@@ -1,0 +1,9 @@
+Scenario Name       : Logining to the website
+
+Participating Actors: Ece: User
+
+Flow of Events      : 1. Ece wants to login to the website.	
+		      2. Ece opens the main page.
+		      3. Ece clicks on the login button and that opens the login page.
+                      4. Ece enters her username and password and clicks on the confirm button.
+                      5. After checking the username and password, System logs Ece in to the website.

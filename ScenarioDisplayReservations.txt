@@ -1,0 +1,9 @@
+Scenario Name       : Displaying the reservations
+
+Participating Actors: Ece: User
+
+Flow of Events      : 1. Ece has some reservations and she wants to see them all in one place.
+                      2. Ece opens the main page and clicks the Display Reservations button.
+                      3. System opens the Display Reservations page which contains all of Ece's
+                         reservations as a list.
+        
