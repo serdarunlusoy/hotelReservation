@@ -1,0 +1,28 @@
+1.Purpose of the System
+
+  The purpose of this project’s generation is to show “Hotel Reservation” project’s development step by step. This document
+explains that the objects which will be used in the system and shows the relations between those objects clearly and in 
+different ways. In addition, this document is prepared for a reference to client for the next parts of the project.
+
+
+1.1.Scope of the System 
+
+  “Hotel Reservation” is a web site and developed for allowing user to search and find best hotel and make reservation online.
+   This web site allows two different ways of searching to the user. If the user wants he/she search a hotel in desired places 
+or he/she can or search the best hotel for his/her criteria from advanced search according to check-in, check-out, room or number
+of people. Furthermore, if he/she wants to make a reservation, firstly he/she has to register by email and password. After that
+he/she can make a reservation.
+  Hotel users applies for register to the system. These applications are checked up from registrant and applications are 
+accepted depends on the situation. Accounts are created by registrant for every hotel user. Hotel user can update the reservation 
+of the rooms’ status by entering the system. All of these processes are kept in the database.
+  Moreover, the admin is the person who manages the system by observing the all processes and analyzing the situations by entering
+the system.
+
+
+1.2.Objectives and Success Criteria of the Project
+
+The purpose of the project is that the client can search for desired criteria fast and easily. In this project, the developers
+aimed some criteria for the pleasure of client. The most important one of these criteria is the ease of usage. Understandability
+and ease of the transition between the objects in the system are aimed. With the ease, the other criteria is the fastness of
+the transition process between the objects. These two criteria are the most important ones that’s why these two criteria has
+been aimed for the client’s benefit.
