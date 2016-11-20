@@ -1,0 +1,11 @@
+Scenario Name       : Searching
+
+Participating Actors: Tanaka: User
+
+Flow of Events      : 1. Tanaka wants to search for hotels in Taipei.
+                      2. Tanaka opens the main page.
+                      3. Tanaka types 'Taipei' in the search bar.
+                      4. Tanaka clicks the 'Search' button.
+                      5. System lists hotels whose locations are Taipei.
+                      6. After deciding on a hotel, Tanaka clicks it's 'Information Page'
+                         button.
