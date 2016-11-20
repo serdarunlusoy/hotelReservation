@@ -1,0 +1,12 @@
+Scenario Name:Let's add our hotel to the hotel registration system!
+
+Participating Actor Instance(s):Ayşe:HotelUser - Mehmet:Registrar
+
+Flow of Events
+
+1)Ayşe's wanted to add her hotel to hotel registration system so she called Mehmet and said I want to add my hotel to your webpage.
+2)Mehmet has given a register code to Ayşe and said use this code while registering.
+3)Ayşe visited the main webpage,saw the register button on the upper right of the screen and clicked on it.
+4)The registration page opened and Ayşe selected Hotel Register option.
+5)Hotel registration form appeared and Ayşe filled the form including the code she took from Mehmet.
+6)Ayşe clicked on complete button and a message appeared "Your registration has taken"
