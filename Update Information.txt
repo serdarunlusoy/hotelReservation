@@ -1,0 +1,19 @@
+Scenario Name       : Updating a Hotel's Information
+
+Participating Actors: Jane: Hotel User, communicates with John: Registrar
+
+Flow of Events      : 1. Jane wants to update her hotel's information on the system.
+                      2. Jane opens the main page and logs in.
+                      3. Jane goes to her hotel's Information Page and clicks the 'Update
+                         Iformation' button.
+                      4. System redirects her to the 'Registration Page' where she can 
+                         edit her already-filled registration form.
+                      6. Jane makes the changes she wants on the form and and clicks the
+                         'Approve Changes' button.
+                      7. The updated form reaches John through the 'Registrations Page'
+                         which he reaches through the 'Check Registrations' button on the
+                         MainPage.
+                      8. After checking the form, John approves the changes by clicking 
+                         the 'Approve Button'.
+                      9. System makes the wanted changes within the Hotel Records and
+                         displays a 'Form Approved' message.
