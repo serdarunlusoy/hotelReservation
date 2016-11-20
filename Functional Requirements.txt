@@ -8,6 +8,12 @@
   an hotel name and a registration code which the registrar needs, to be able to verify the 
   validity of the hotel.
   
+  ** Login **
+  
+- On the main page, the user should be given an option to login to the website. This option 
+  should open the login page. The user has to enter his/her username and password. If the 
+  informations are wrong, the user should see an error message.
+  
   ** Search / Advanced search / Hotel Information ** 
 
 - On the main page, a user shall search for a hotel, according to several search options or 
