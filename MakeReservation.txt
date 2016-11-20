@@ -11,12 +11,11 @@ Flow of Events      :
                       3. User fills the reservation form and clicks complete button.
                       4. Reservation form displays the price.
                       5. User clicks the OK button.
-		      6. System checks availability of the information on the form and if available confirms the reservation and displays a 			
-		      success message.
-		      7. If not available, system displays an error message and displays the reservation form again with problem highlighted 			 
+		      6. System checks availability of the information on the form and if available confirms the reservation 			      and displays a make reservation success message.
+		      7. If not available, system displays an make reservation error message and displays the reservation form again with 	        problem highlighted 			 
 		      areas and user changes the information on the form then continues with step 5.
 
-Objects             : user, make reservation button, reservation form, complete button, OK button, success message, error message
+Objects             : user, make reservation button, reservation form, complete button, OK button, make reservation success 			  message , make reservation error message
 		      
 		      
                      
