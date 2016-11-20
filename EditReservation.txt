@@ -10,6 +10,6 @@ Flow of Events      : 1. User clicks on the edit button of the reservation that 
                       2. System opens the reservation form.
 		      3. User edits the information he/she wants to change.   
 		      4. User presses the confirm button.
-                      5. System makes the changes by initiating check availability and if system gets a yes, completes reservation and displays a edit reservation success message else if system gets no, displays edit reservation error message then system re-opens the form and displays problem areas then continues to step 3. 
+                      5. System makes the changes by initiating check availability and if system gets a yes, completes          			reservation and displays a edit reservation success message else if system gets no, displays edit 			  reservation error message then system re-opens the form and displays problem areas then continues to                           step 3. 
 
 	     Objects: user, edit button, reservation form, confirm button, edit reservation success message, edit reservation error message
