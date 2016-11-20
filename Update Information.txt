@@ -1,20 +1,28 @@
 Uses case name      : Update Information
 
-Participating actors: Hotel User, Comunicates with Registrar
+Participating actors: Hotel User, Communicates with Registrar or Admin
 
 Entry Condition     : Hotel User clicks the 'Update Information' button
                       to make changes in his/her Hotel Registration Form.
 
 Exit Condition      : Registrar aproves or rejects the new Hotel Registration Form.
 
-Flow of Events      : 1. System displays the Hotel Registration Form already registered
-                         for the Hotel User.
+Flow of Events      : 1. System redirects the user to the Hotel Registration Page and
+                         displays the Hotel Registration Form already registered for the 
+                         Hotel User.
                       2. Hotel User makes changes to the form he/she wants and clicks the
-                      'Approve Changes' button. The system displays a confirmation message.
-                      3. System sends the updated form to the Registrar. Registrar approves
-                      or rejects the changes in the form and the system updates the related
-                      HotelDatabase entry accordingly.
+                         'Approve Changes' button. The system displays a confirmation
+                         message.
+                      3. Updated form is checked by the Registrar from the "Registrations 
+                         Page" by clicking the 'Check Registrations Button' on the 
+                         'MainPage'.
+                      4. Registrar approves or rejects the changes in the form  by 
+                         clicking the 'Approve Button' or Reject Button' and the system 
+                         updates the related Hotel Records entry accordingly.
+                      5. System displays the message "Form Approved" or "Form Rejected",
+                         respectively.
 
-Objects             : hotel user, registrar, hotel registration form, 'approve changes'
-                      button, 'update information' button, confirmation message,
-                      hotelDatabase
+Objects             : hotel user, registrar, hotel registration page, hotel registration 
+                      form, 'approve changes' button, 'update information' button, 
+                      confirmation message, hotel records, 'check registrations' button, 
+                      mainpage
