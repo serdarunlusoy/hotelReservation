@@ -1,0 +1,11 @@
+Senario Name: Edit Reservation 
+Participating Actor Instances: Çağla: Visitor
+			          
+Flow of Event:
+              1.Çağla clicks the edit button to edit the reservation that she did before.
+              2.System opens the reservation form.
+              3.After the edition reservation form is loaded Çağla did any changing that 
+              she want.
+              4.Then, Çağla click the confirm button on the reservation form.
+              5.System makes the change bu initiating check availability and if system 
+              gets a yes, completes  
