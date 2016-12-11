@@ -1,0 +1,13 @@
+3.1
+We are building our system "outing" by using Three Tier architectural style.
+
+Three tier architectural system consists of 3 layers which are Presentation,Function and Storage respectively from higher to lower.
+
+Presentation layer is the interface for client.It contains forms and pages which are at the top level.
+
+Function layer is at middle.It manipulates the data which comes from database.
+
+Storage layer is the lowest layer and contains the database.
+
+
+
