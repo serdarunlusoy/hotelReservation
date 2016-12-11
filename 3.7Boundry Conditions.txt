@@ -1,0 +1,15 @@
+3.7 Boundary Conditions
+
+When system first initiated a registration page comes up and the first user signs up as Admin.
+
+Thus system should not be initiated publicly at first.
+
+Then Admin adds registrant by hand.
+
+After these steps system starts functioning normally which means main page starts being displayed at first.
+
+Since the system is a webpage it's available 24/7.
+
+System is only shutted down when a maintanence is needed.While maintanance is on going system displays a related message and cant be used.
+
+Since all the data is saved on a web server in case of a failure the protocol's of the web server are applied.
