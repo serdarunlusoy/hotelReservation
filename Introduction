@@ -1,0 +1,30 @@
+ 1.1.Purpose of the System
+ 
+ Online Hotel Reservation System has been named as "outing" by us in our project.
+Outing is capable of providing search in desired criteria to user and capable of 
+letting making reservation in desired hotel to user.
+
+
+1.2.Design Goals
+  Outing is planned to provide an advanced search and list them according to desired
+cities, dates, number of people who will travel and number of room and provide making
+fast and easy reservation by their desires.
+
+    The design goals of this system are; correctness, robustness and efficiency. We will
+provide the correctness of our system by satisfying the requirements we have mentioned before.
+
+    People will be able to do their advance searches and their reservation operations fast 
+and easily via Outing. For instance, people will be able to do an advanced search by desired 
+cities, dates, number of people and number of room, as a result of this advanced search, the 
+best-fit hotels will be able to be listed and reservation will be able to be made according to 
+preferred hotel.
+
+
+
+1.3.Definitions, Acronyms, and Abbreviations
+    HRS : Hotel Reservation System
+    
+1.4. References
+   - Requirements Analysis Document (?)
+   - booking.com
+      
