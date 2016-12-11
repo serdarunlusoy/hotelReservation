@@ -1,0 +1,9 @@
+3.6
+Client uses a machine to connect our server with HTTP protocol via a web browser on the machine.
+
+The data server gathers the data from database to webserver.
+
+Web browser performs functions and manipulates the data.
+
+All of the interactions with client performed on webrowser.
+ 
