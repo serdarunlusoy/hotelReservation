@@ -58,6 +58,14 @@ include_once 'mysqli_connect.php';
         consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse
         cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non
         proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+
+
+       İNTELLİJ İNTEGRATİON TEST
+       COULD I SUCCESSFULLY ADD THESE LINES TO GITHUB ON INTELLIJ?
+       YES I SUCCEEDED YAY!
+       TESTED BY SERDAR
+
+       niye buraya yazdıklarım github da gözükmüyo :/
     </div>
 </body>
 </html>
