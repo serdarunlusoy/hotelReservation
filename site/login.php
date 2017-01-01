@@ -14,7 +14,7 @@ if (isset($_POST['login'])) {
     $result = mysqli_query($con, "SELECT * FROM users WHERE email = '" . $email . "' and password = '" . md5($password) . "'");
 
     if ($row = mysqli_fetch_array($result)) {
-        $_SESSION['usr_id'] = $row['id'];
+        $_SESSION['usr_id'] = $row['userId'];
         $_SESSION['usr_email'] = $row['email'];
         //$_SESSION['usr_name'] = $row['name'];
         header("Location: index.php");
