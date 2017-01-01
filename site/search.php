@@ -1,28 +1,7 @@
 <?php
   mysql_connect("localhost", "root", "") or die("Error connecting to database: ".mysql_error());
-  /*
-    localhost - it's location of the mysql server, usually localhost
-    root - your username
-    third is your password
-
-    if connection fails it will stop loading the page and display an error
-  */
-
-  mysql_select_db("ENTER-DATABASE-NAME-HERE") or die(mysql_error());
-  /* tutorial_search is the name of database we've created */
+  mysql_select_db("mydb") or die(mysql_error());
 ?>
-
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
-<html xmlns="http://www.w3.org/1999/xhtml">
-<head>
-  <title>Search results</title>
-  <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-  <link rel="stylesheet" type="text/css" href="style.css"/>
-</head>
-<body>
-
-</body>
-</html>
 
 <!DOCTYPE html>
 <html>
@@ -74,7 +53,7 @@
       </div>
 
 
-      <div class="panel panel-default"> q
+      <div class="panel panel-default">
 
         <div class="panel-heading"> <button type="button" class="btn btn-primary btn-sm btn-block">Advanced Search</button> </div>
         <div class="panel-body">
@@ -98,7 +77,7 @@
 
   if(strlen($query) >= $min_length){ // if query length > minLen
     $query = htmlspecialchars($query);
-    // html conversion;
+    // html conversion
 
     $query = mysql_real_escape_string($query);
     // anti-SQL injection
@@ -119,7 +98,7 @@
             <th></th>
           </tr>
         </thead>
-        <tbody>"
+        <tbody>";
 
       while($results = mysql_fetch_array($raw_results)){
       // $results = mysql_fetch_array($raw_results) puts data from database into array, while it's valid it does the loop
@@ -134,7 +113,7 @@
       }
       echo "          </tbody>
         </table>
-    </div>"
+    </div>";
 
     }
     else{ // if there is no matching rows do following
