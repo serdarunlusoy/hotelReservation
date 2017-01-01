@@ -74,7 +74,7 @@
       </div>
 
 
-      <div class="panel panel-default">
+      <div class="panel panel-default"> q
 
         <div class="panel-heading"> <button type="button" class="btn btn-primary btn-sm btn-block">Advanced Search</button> </div>
         <div class="panel-body">
