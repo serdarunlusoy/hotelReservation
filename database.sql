@@ -43,10 +43,8 @@ DROP TABLE IF EXISTS `mydb`.`users` ;
 
 CREATE TABLE IF NOT EXISTS `mydb`.`users` (
   `userId` INT NOT NULL AUTO_INCREMENT,
-  `name` VARCHAR(45) NULL DEFAULT NULL,
   `password` VARCHAR(20) NULL DEFAULT NULL,
   `email` VARCHAR(45) NOT NULL,
-  `UserType` VARCHAR(10) NOT NULL,
   PRIMARY KEY (`userId`),
   UNIQUE INDEX `email_UNIQUE` (`email` ASC),
   UNIQUE INDEX `userId_UNIQUE` (`userId` ASC))
