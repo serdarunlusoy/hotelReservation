@@ -3,7 +3,7 @@
 $servername = "localhost";
 $username = "root";
 $password = "";
-$dbname = "mydb";
+$dbname = "HRSdb";
 
 $con = mysqli_connect($servername, $username, $password, $dbname);
 
