@@ -43,7 +43,7 @@ include_once 'mysqli_connect.php';
             <form action="search.php" method="GET">
                 <div id="custom-search-input" style="padding-bottom:5px;">
                     <div class="input-group col-md-12">
-                        <input type="text" name="search_query" class="search-query form-control" placeholder="Search" />
+                        <input type="text" name="query" class="search-query form-control" placeholder="Search" />
                         <span class="input-group-btn">
                             <button class="btn btn-primary" type="button">
                                 <span class="glyphicon glyphicon-search"></span>
