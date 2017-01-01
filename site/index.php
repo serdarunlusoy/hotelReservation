@@ -40,17 +40,18 @@ include_once 'mysqli_connect.php';
         <div class="jumbotron" style="position: middle">
 
             <h2>Welcome to HRS!</h2>
-            <div id="custom-search-input" style="padding-bottom:5px;">
-                <div class="input-group col-md-12">
-                    <input type="text" class="  search-query form-control" placeholder="Search" />
-                    <span class="input-group-btn">
-                        <button class="btn btn-primary" type="button">
-                            <span class=" glyphicon glyphicon-search"></span>
-                        </button>
-                    </span>
+            <form action="search.php" method="GET">
+                <div id="custom-search-input" style="padding-bottom:5px;">
+                    <div class="input-group col-md-12">
+                        <input type="text" name="search_query" class="search-query form-control" placeholder="Search" />
+                        <span class="input-group-btn">
+                            <button class="btn btn-primary" type="button">
+                                <span class="glyphicon glyphicon-search"></span>
+                            </button>
+                        </span>
+                    </div>
                 </div>
-            </div>
-
+            </form>
         </div>
         Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
         tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
