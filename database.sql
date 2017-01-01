@@ -28,10 +28,10 @@ CREATE TABLE IF NOT EXISTS `mydb`.`hotels` (
   `Stars` VARCHAR(1) NOT NULL,
   `DailyPrice` SMALLINT NOT NULL,
   `RoomCount` SMALLINT NOT NULL,
-  `InfoPage` VARCHAR(45) NOT NULL,
+  `InfoPage` VARCHAR(45) GENERATED ALWAYS AS (CONCAT(RegistrationId,'.html')) VIRTUAL,
+  `Pictures` BLOB NOT NULL,
   PRIMARY KEY (`RegistrationId`),
-  UNIQUE INDEX `Registration Code_UNIQUE` (`RegistrationId` ASC),
-  UNIQUE INDEX `Info Page Address_UNIQUE` (`InfoPage` ASC))
+  UNIQUE INDEX `Registration Code_UNIQUE` (`RegistrationId` ASC))
 ENGINE = InnoDB
 DEFAULT CHARACTER SET = utf8;
 
@@ -42,16 +42,13 @@ DEFAULT CHARACTER SET = utf8;
 DROP TABLE IF EXISTS `mydb`.`users` ;
 
 CREATE TABLE IF NOT EXISTS `mydb`.`users` (
-  `userName` VARCHAR(10) CHARACTER SET 'big5' NOT NULL,
+  `userId` INT NOT NULL DEFAULT 1,
   `name` VARCHAR(45) NULL DEFAULT NULL,
   `password` VARCHAR(20) NULL DEFAULT NULL,
   `email` VARCHAR(45) NOT NULL,
-  `phone` VARCHAR(10) NULL DEFAULT NULL,
   `UserType` VARCHAR(10) NOT NULL,
-  `userId` INT NOT NULL DEFAULT 1,
   PRIMARY KEY (`userId`),
   UNIQUE INDEX `email_UNIQUE` (`email` ASC),
-  UNIQUE INDEX `userName_UNIQUE` (`userName` ASC),
   UNIQUE INDEX `userId_UNIQUE` (`userId` ASC))
 ENGINE = InnoDB
 DEFAULT CHARACTER SET = utf8;
@@ -65,18 +62,18 @@ DROP TABLE IF EXISTS `mydb`.`hotel users` ;
 CREATE TABLE IF NOT EXISTS `mydb`.`hotel users` (
   `HotelName` VARCHAR(45) NULL DEFAULT NULL,
   `Hotels_RegistrationId` INT NOT NULL,
-  `users_userName` VARCHAR(10) CHARACTER SET 'big5' NOT NULL,
-  PRIMARY KEY (`Hotels_RegistrationId`, `users_userName`),
+  `users_userId` INT NOT NULL,
+  PRIMARY KEY (`Hotels_RegistrationId`, `users_userId`),
   INDEX `fk_Hotel Users_Hotels1_idx` (`Hotels_RegistrationId` ASC),
-  INDEX `fk_hotel users_users1_idx` (`users_userName` ASC),
+  INDEX `fk_hotel users_users1_idx` (`users_userId` ASC),
   CONSTRAINT `fk_Hotel Users_Hotels1`
     FOREIGN KEY (`Hotels_RegistrationId`)
     REFERENCES `mydb`.`hotels` (`RegistrationId`)
     ON DELETE CASCADE
     ON UPDATE CASCADE,
   CONSTRAINT `fk_hotel users_users1`
-    FOREIGN KEY (`users_userName`)
-    REFERENCES `mydb`.`users` (`userName`)
+    FOREIGN KEY (`users_userId`)
+    REFERENCES `mydb`.`users` (`userId`)
     ON DELETE NO ACTION
     ON UPDATE NO ACTION)
 ENGINE = InnoDB
