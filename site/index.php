@@ -45,7 +45,7 @@ include_once 'mysqli_connect.php';
                     <div class="input-group col-md-12">
                         <input type="text" name="query" class="search-query form-control" placeholder="Search" />
                         <span class="input-group-btn">
-                            <button class="btn btn-primary" type="button">
+                            <button class="btn btn-primary" type="submit" action="search.php" method="GET" >
                                 <span class="glyphicon glyphicon-search"></span>
                             </button>
                         </span>
