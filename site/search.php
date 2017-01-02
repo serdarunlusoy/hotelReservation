@@ -92,7 +92,7 @@
         <thead>
           <tr>
             <th>Hotel Name</th>
-            <th>Hotel Type</th>
+            <th>Hotel Rating</th>
             <th>Hotel Location</th>
             <th>Daily Price</th>
             <th></th>
