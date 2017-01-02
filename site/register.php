@@ -27,7 +27,7 @@ if (isset($_POST['signup'])) {
         $cpassword_error = "Password and Confirm Password doesn't match";
     }
     if (!$error) {
-        if (mysqli_query($con, "INSERT INTO users(email,password) VALUES('" . $email . "', '" . md5($password) . "')")) {
+        if (mysqli_query($con, "INSERT INTO users(email,password,usertype) VALUES('" . $email . "', '" . md5($password) . "','1')")) {
             $successmsg = "Successfully Registered! <a href='login.php'>Click here to Login</a>";
         } else {
             $errormsg = "Error in registering...Please try again later!";

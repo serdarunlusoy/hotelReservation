@@ -11,13 +11,24 @@ if (isset($_POST['login'])) {
 
     $email = mysqli_real_escape_string($con, $_POST['email']);
     $password = mysqli_real_escape_string($con, $_POST['password']);
-    $result = mysqli_query($con, "SELECT * FROM users WHERE email = '" . $email . "' and password = '" . md5($password) . "'");
+    $usertype = mysqli_real_escape_string($con, $_POST['usertype']);
+    $result = mysqli_query($con, "SELECT * FROM users WHERE email = '" . $email . "' and password = '" . md5($password) . "' and usertype = '" . $usertype . "'");
 
     if ($row = mysqli_fetch_array($result)) {
-        $_SESSION['usr_id'] = $row['userId'];
-        $_SESSION['usr_email'] = $row['email'];
-        //$_SESSION['usr_name'] = $row['name'];
-        header("Location: index.php");
+        if ($row['usertype'] == '1') {
+            $_SESSION['usr_id'] = $row['userId'];
+            $_SESSION['usr_email'] = $row['email'];
+            //$_SESSION['usr_name'] = $row['name'];
+            header("Location: index.php");
+        } else if ( $row['usertype'] == '2' ){
+            $_SESSION['usr_id'] = $row['userId'];
+            $_SESSION['usr_email'] = $row['email'];
+            header("Location: admin_page.php");
+        } else {
+            $_SESSION['usr_id'] = $row['userId'];
+            $_SESSION['usr_email'] = $row['email'];
+            header("Location: hotel_admin_page.php");
+        }
     } else {
         $errormsg = "Incorrect Email or Password!!!";
     }
@@ -67,6 +78,19 @@ if (isset($_POST['login'])) {
                         <div class="form-group">
                             <label for="name">Password</label>
                             <input type="password" name="password" placeholder="Your Password" required class="form-control" />
+                        </div>
+
+                        <div class="form-group">
+                            <label for="name">User Type</label>
+                            <div class="radio">
+                                <label><input type="radio" name="usertype" value="1">User</label>
+                            </div>
+                            <div class="radio">
+                                <label><input type="radio" name="usertype" value="2">Admin</label>
+                            </div>
+                            <div class="radio">
+                                <label><input type="radio" name="usertype" value="3">Hotel Admin</label>
+                            </div>
                         </div>
 
                         <div class="form-group">
