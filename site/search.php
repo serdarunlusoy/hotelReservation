@@ -1,6 +1,7 @@
 <?php
 error_reporting(E_ALL ^ E_DEPRECATED);
-include_once 'mysqli_connect.php';
+mysqli_connect("localhost", "root", "") or die("Error connecting to database: " . mysql_error());
+mysqli_select_db("hrsdb") or die(mysql_error());
 ?>
 
 <!DOCTYPE html>
