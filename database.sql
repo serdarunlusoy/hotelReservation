@@ -45,6 +45,7 @@ CREATE TABLE IF NOT EXISTS `HRSdb`.`users` (
   `userId` INT(11) NOT NULL AUTO_INCREMENT,
   `email` VARCHAR(45) NOT NULL,
   `password` VARCHAR(90) NOT NULL,
+  `usertype` VARCHAR(45) NOT NULL,
   PRIMARY KEY (`userId`),
   UNIQUE INDEX `email_UNIQUE` (`email` ASC),
   UNIQUE INDEX `userId_UNIQUE` (`userId` ASC))
