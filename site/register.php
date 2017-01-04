@@ -13,7 +13,7 @@ if (isset($_POST['signup'])) {
     $email = mysqli_real_escape_string($con, $_POST['email']);
     $password = mysqli_real_escape_string($con, $_POST['password']);
     $cpassword = mysqli_real_escape_string($con, $_POST['cpassword']);
-
+     
     if (!filter_var($email, FILTER_VALIDATE_EMAIL)) {
         $error = true;
         $email_error = "Please Enter Valid Email ID";
@@ -76,7 +76,7 @@ if (isset($_POST['signup'])) {
                             <input type="text" name="email" placeholder="Email" required value="<?php if ($error) echo $email; ?>" class="form-control" />
                             <span class="text-danger"><?php if (isset($email_error)) echo $email_error; ?></span>
                         </div>
-
+                        
                         <div class="form-group">
                             <label for="name">Password</label>
                             <input type="password" name="password" placeholder="Password" required class="form-control" />

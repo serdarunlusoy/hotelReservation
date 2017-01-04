@@ -24,10 +24,16 @@ if (isset($_POST['login'])) {
             $_SESSION['usr_id'] = $row['userId'];
             $_SESSION['usr_email'] = $row['email'];
             header("Location: admin_page.php");
-        } else {
+            
+             } else if ( $row['usertype'] == '3' ){
             $_SESSION['usr_id'] = $row['userId'];
             $_SESSION['usr_email'] = $row['email'];
             header("Location: hotel_admin_page.php");
+            
+        } else {
+            $_SESSION['usr_id'] = $row['userId'];
+            $_SESSION['usr_email'] = $row['email'];
+            header("Location: registrant_admin_page.php");
         }
     } else {
         $errormsg = "Incorrect Email or Password!!!";
@@ -91,6 +97,11 @@ if (isset($_POST['login'])) {
                             <div class="radio">
                                 <label><input type="radio" name="usertype" value="3">Hotel Admin</label>
                             </div>
+                            
+                            <div class="radio">
+                                <label><input type="radio" name="usertype" value="4">Registrant Admin</label>
+                            </div>
+                            
                         </div>
 
                         <div class="form-group">
