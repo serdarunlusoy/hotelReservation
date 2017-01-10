@@ -20,7 +20,11 @@ if (isset($_POST['login'])) {
             $_SESSION['usr_email'] = $row['email'];
             //$_SESSION['usr_name'] = $row['name'];
             header("Location: index.php");
-        } else if ( $row['usertype'] == '2' ){
+        } else if ($row['usertype'] == '2') {
+            $_SESSION['usr_id'] = $row['userId'];
+            $_SESSION['usr_email'] = $row['email'];
+            header("Location: admin_page.php");
+        } else if ($row['usertype'] == '3') {
             $_SESSION['usr_id'] = $row['userId'];
             $_SESSION['usr_email'] = $row['email'];
             header("Location: admin_page.php");
@@ -91,6 +95,9 @@ if (isset($_POST['login'])) {
                             <div class="radio">
                                 <label><input type="radio" name="usertype" value="3">Hotel Admin</label>
                             </div>
+                            <div class="radio">
+                                <label><input type="radio" name="usertype" value="4">Registrant</label>
+                            </div>
                         </div>
 
                         <div class="form-group">
@@ -99,10 +106,10 @@ if (isset($_POST['login'])) {
                     </fieldset>
                 </form>
                 <span class="text-danger"><?php
-                    if (isset($errormsg)) {
-                        echo $errormsg;
-                    }
-                    ?></span>
+if (isset($errormsg)) {
+    echo $errormsg;
+}
+?></span>
             </div>
         </div>
         <div class="row">
