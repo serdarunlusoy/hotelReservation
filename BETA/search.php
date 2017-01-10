@@ -1,12 +1,16 @@
 <?php
   $connection=mysqli_connect("localhost", "root", "","hrsdb") or die("Error connecting to database: ".mysqli_error());
-  
+
+
+  $query = $_GET['query'];
+
+
 ?>
 
 <!DOCTYPE html>
 <html>
 <head>
-  <title>HRS - results page</title>
+  <title>HRS - Search results for "<?php echo $query; ?>"</title>
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
@@ -41,7 +45,7 @@
 
 
 
-      <div id="custom-search-input" style="padding-bottom:5px">
+      <div id="custom-search-input" style="padding-bottom:20px">
         <div class="input-group col-md-12">
           <input type="text" class="  search-query form-control" placeholder="Search" />
           <span class="input-group-btn">
@@ -70,8 +74,13 @@
     </div>
 
 
+    <div class='col-sm-8'>
+      <div class="panel panel-default">
+
+          <div class="panel-heading"> Results for "<?php echo $query; ?>" </div>
+          <div class="panel-body">
+
 <?php
-  $query = $_GET['query'];
 
   $min_length = 3;
 
@@ -87,7 +96,7 @@
 
     if(mysqli_num_rows($raw_results) > 0){ // if there are results
 
-      echo "<div class='col-sm-8'>
+      echo "
       <table class='table table-hover' style='max-width: none'>
         <thead>
           <tr>
@@ -108,7 +117,9 @@
               <td id='hotel_type'>".$results['Stars']."</td>
               <td id='hotel_loc'>".$results['District']."</td>
               <td id='hotel_daily_pr'>".$results['DailyPrice']."</td>
-              <td id='info_button'><a href='/hotels/".$results['InfoPage']."'class='btn btn-default'>Info Page</a></td>
+              <td id='info_button'><a href='info_page.php?hotel_id=".$results['RegistrationId']."'
+              class='btn btn-default'>Info Page</a></td>
+
             </tr>";
       }
       echo "          </tbody>
@@ -126,7 +137,8 @@
   }
 ?>
 
-
+  </div>
+  </div>
   </div>
 </div>
 
