@@ -122,7 +122,7 @@ hey
 
             <div class="row">
                 <div class="col-lg-12" >
-                    SE301 - Brown Group
+                    SE301
                 </div>
             </div>
         </div>
@@ -170,7 +170,7 @@ hey
       ;
     }
 
-  function viewUsers(){
+  function viewHotels(){
 
       document.getElementById('changeable_page').innerHTML = '      <?php
 
