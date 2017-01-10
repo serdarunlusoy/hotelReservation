@@ -20,13 +20,21 @@ USE `hrsdb` ;
 CREATE TABLE IF NOT EXISTS `hrsdb`.`hotels` (
   `RegistrationId` INT(11) NOT NULL,
   `HotelName` VARCHAR(45) NOT NULL,
-  `District` VARCHAR(20) NOT NULL,
   `Phone` VARCHAR(20) NOT NULL,
   `Stars` VARCHAR(1) NOT NULL,
-  `DailyPrice` SMALLINT(6) NOT NULL,
+  `DailyPrice` DOUBLE NOT NULL,
   `RoomCount` SMALLINT(6) NOT NULL,
+<<<<<<< HEAD
+  `City` VARCHAR(45) NOT NULL,
+  `District` VARCHAR(20) NOT NULL,
+  `Country` VARCHAR(45) NOT NULL,
+  `HotelInfo` MEDIUMTEXT NOT NULL,
+  `Picture1` MEDIUMBLOB NULL DEFAULT NULL,
+  `Picture2` MEDIUMBLOB NULL DEFAULT NULL,
+=======
   `Pictures` MEDIUMBLOB NULL DEFAULT NULL,
   `HotelInfo` MEDIUMTEXT NOT NULL,
+>>>>>>> 21ab8716e6a049eb80cb46997d12cabbcee980f0
   PRIMARY KEY (`RegistrationId`),
   UNIQUE INDEX `Registration Code_UNIQUE` (`RegistrationId` ASC))
 ENGINE = InnoDB
@@ -52,7 +60,10 @@ DEFAULT CHARACTER SET = utf8;
 -- Table `hrsdb`.`hotel users`
 -- -----------------------------------------------------
 CREATE TABLE IF NOT EXISTS `hrsdb`.`hotel users` (
+<<<<<<< HEAD
+=======
   `HotelName` VARCHAR(45) NULL DEFAULT NULL,
+>>>>>>> 21ab8716e6a049eb80cb46997d12cabbcee980f0
   `Hotels_RegistrationId` INT(11) NOT NULL,
   `users_userId` INT(11) NOT NULL,
   PRIMARY KEY (`Hotels_RegistrationId`, `users_userId`),
@@ -76,11 +87,16 @@ DEFAULT CHARACTER SET = utf8;
 -- Table `hrsdb`.`reservations`
 -- -----------------------------------------------------
 CREATE TABLE IF NOT EXISTS `hrsdb`.`reservations` (
+<<<<<<< HEAD
+  `People` INT NOT NULL,
+  `RoomAmount` INT NOT NULL,
+=======
   `People` TINYINT(4) NOT NULL,
   `RoomAmount` TINYINT(4) NOT NULL,
+>>>>>>> 21ab8716e6a049eb80cb46997d12cabbcee980f0
   `StartDate` DATE NOT NULL,
   `EndDate` DATE NOT NULL,
-  `Price` SMALLINT(6) NOT NULL,
+  `Price` DOUBLE NOT NULL,
   `Hotels_RegistrationId` INT(11) NOT NULL,
   `users_userId` INT(11) NOT NULL,
   PRIMARY KEY (`Hotels_RegistrationId`, `users_userId`),
