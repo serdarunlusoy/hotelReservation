@@ -43,19 +43,12 @@ include_once 'mysqli_connect.php';
               <div class="col-sm-4"><button>List my reservations</button> </div>
               <div class="col-sm-8">Reservations List</div>
               <font size="48">
-                SAYFANIN YAPMASI GEREKEN SEY ASAGIDA YAZAN QUERYI KULLANARAK BUTONA TIKLANDIGINDA USERIN YAPTIGI REZERVASYONLARI DATABASEDEN CEKIP LISTELEMEK
-                </font>
-                ---------------------------------------------------------
-                  <font size="48">
-                SELECT * FROM users u,reservations r WHERE u.userId=r.users_userId;
-                  </font>
+ 
+              </font>
               
               </div>
             
             <hr>
-            
-
-
 
     </div>
 </body>
