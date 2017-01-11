@@ -10,9 +10,9 @@ include_once 'mysqli_connect.php';
 $error = false;
 
 if (isset($_POST['signup'])) {
-    $email = mysqli_real_escape_string($con, $_POST['email']);
-    $password = mysqli_real_escape_string($con, $_POST['password']);
-    $cpassword = mysqli_real_escape_string($con, $_POST['cpassword']);
+    $email = mysqli_real_escape_string($connection, $_POST['email']);
+    $password = mysqli_real_escape_string($connection, $_POST['password']);
+    $cpassword = mysqli_real_escape_string($connection, $_POST['cpassword']);
 
     if (!filter_var($email, FILTER_VALIDATE_EMAIL)) {
         $error = true;
@@ -27,7 +27,7 @@ if (isset($_POST['signup'])) {
         $cpassword_error = "Password and Confirm Password doesn't match";
     }
     if (!$error) {
-        if (mysqli_query($con, "INSERT INTO users(email,password,usertype) VALUES('" . $email . "', '" . md5($password) . "','1')")) {
+        if (mysqli_query($connection, "INSERT INTO users(email,password) VALUES('" . $email . "', '" . md5($password) . "')")) {
             $successmsg = "Successfully Registered! <a href='login.php'>Click here to Login</a>";
         } else {
             $errormsg = "Error in registering...Please try again later!";
