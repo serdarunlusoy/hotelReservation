@@ -18,7 +18,6 @@ if (isset($_POST['login'])) {
         if ($row['usertype'] == '1') {
             $_SESSION['usr_id'] = $row['userId'];
             $_SESSION['usr_email'] = $row['email'];
-            //$_SESSION['usr_name'] = $row['name'];
             header("Location: index.php");
         } else if ($row['usertype'] == '2') {
             $_SESSION['usr_id'] = $row['userId'];

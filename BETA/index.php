@@ -45,6 +45,7 @@ include_once 'mysqli_connect.php';
         <div class="jumbotron" style="position: middle">
 
             <h2>Welcome to HRS!</h2>
+            <!--SEARCH SEARCH SEARCH SEARCH SEARCH SEARCH SEARCH SEARCH SEARCH SEARCH SEARCH SEARCH -->
             <form action="search.php" method="GET">
                 <div id="custom-search-input" style="padding-bottom:5px;">
                     <div class="input-group col-md-12">
@@ -57,6 +58,7 @@ include_once 'mysqli_connect.php';
                     </div>
                 </div>
             </form>
+            <!--SEARCH END SEARCH END SEARCH END SEARCH END SEARCH END SEARCH END SEARCH END SEARCH -->
         </div>
         Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
         tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,

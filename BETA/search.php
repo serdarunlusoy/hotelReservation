@@ -1,4 +1,5 @@
 <?php
+  session_start();
   $connection=mysqli_connect("localhost", "root", "","hrsdb") or die("Error connecting to database: ".mysqli_error());
 
 
