@@ -22,7 +22,7 @@
  <nav class="navbar navbar-inverse">
   <div class="container-fluid">
     <div class="navbar-header">
-      <a class="navbar-brand" href="index.php">HRS System</a>
+      <a class="navbar-brand" href="index.php">HRS</a>
     </div>
     <ul class="nav navbar-nav">
       <li class="active"><a href="#">Home</a></li>
@@ -43,18 +43,20 @@
     <div class="col-sm-4">
 
 
-
-
-      <div id="custom-search-input" style="padding-bottom:20px">
-        <div class="input-group col-md-12">
-          <input type="text" class="  search-query form-control" placeholder="Search" />
-          <span class="input-group-btn">
-            <button class="btn btn-primary" type="button">
-              <span class=" glyphicon glyphicon-search"></span>
-                </button>
-              </span>
-        </div>
-      </div>
+    <!--SEARCH SEARCH SEARCH SEARCH SEARCH SEARCH SEARCH SEARCH SEARCH SEARCH SEARCH SEARCH -->
+    <form action="search.php" method="GET">
+          <div id="custom-search-input" style="padding-bottom:20px;">
+              <div class="input-group col-sm-12">
+                  <input type="text" name="query" class="search-query form-control" placeholder="Search" />
+                  <span class="input-group-btn">
+                      <button class="btn btn-primary" type="submit">
+                          <span class="glyphicon glyphicon-search"></span>
+                      </button>
+                  </span>
+              </div>
+          </div>
+      </form>
+      <!--SEARCH END SEARCH END SEARCH END SEARCH END SEARCH END SEARCH END SEARCH END SEARCH -->
 
 
       <div class="panel panel-default">
@@ -92,7 +94,8 @@
     // anti-SQL injection
 
     $raw_results = mysqli_query($connection,"SELECT * FROM hotels
-      WHERE (`HotelName` LIKE '%".$query."%') OR (`District` LIKE '%".$query."%')") or die(mysql_error());
+      WHERE (`HotelName` LIKE '%".$query."%') OR (`Province` LIKE '%".$query."%') 
+      OR (`City` LIKE '%".$query."%')") or die(mysql_error());
 
     if(mysqli_num_rows($raw_results) > 0){ // if there are results
 
@@ -115,7 +118,7 @@
         echo "            <tr class='hotel_result'>
               <td id='hotel_name'>".$results['HotelName']."</td>
               <td id='hotel_type'>".$results['Stars']."</td>
-              <td id='hotel_loc'>".$results['District']."</td>
+              <td id='hotel_loc'>".$results['Province']."</td>
               <td id='hotel_daily_pr'>".$results['DailyPrice']."</td>
               <td id='info_button'><a href='info_page.php?hotel_id=".$results['RegistrationId']."'
               class='btn btn-default'>Info Page</a></td>

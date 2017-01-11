@@ -1,5 +1,6 @@
 <?php
-  $connection=mysqli_connect("localhost", "root", "","hrsdb") or die("Error connecting to database: ".mysqli_error());
+  session_start();
+  include_once 'mysqli_connect.php';
 
   $hotel = $_GET['hotel_id'];
 
@@ -23,33 +24,54 @@
 
 
 
+<!--NAVBAR  NAVBAR  NAVBAR  NAVBAR  NAVBAR  NAVBAR  NAVBAR  NAVBAR  NAVBAR  NAVBAR  NAVBAR  NAVBAR  -->
+        <nav class="navbar navbar-inverse">
+            <div class="container-fluid">
+                <div class="navbar-header">
+                    <a class="navbar-brand" href="index.php">HRS</a>
+                </div>
+                <ul class="nav navbar-nav">
+                    <li><a href="index.php">Home</a></li>
+                    <li><a href="#">Hotels</a></li>
+                    <li><a href="#">About</a></li>
+                </ul>
+                <ul class="nav navbar-nav navbar-right">
+                    <?php if (isset($_SESSION['usr_id'])) { ?>
+                        <li><p class="navbar-text">Signed in as <?php echo $_SESSION['usr_email']; ?></p></li>
+                        <li><a href="logout.php"><span class="glyphicon glyphicon-log-out"> </span> Log Out</a></li>
+                    <?php } else { ?>
+                        <li><a href="register.php"><span class="glyphicon glyphicon-user"></span> Sign Up</a></li>
+                        <li><a href="login.php"><span class="glyphicon glyphicon-log-in"></span> Login</a></li>
+                    <?php } ?>
+                </ul>
+            </div>
+        </nav>
+<!--NAVBAR END NAVBAR END NAVBAR END NAVBAR END NAVBAR END NAVBAR END NAVBAR END NAVBAR END NAVBAR END -->
 
-<body>
- <nav class="navbar navbar-inverse">
-  <div class="container-fluid">
-    <div class="navbar-header">
-      <a class="navbar-brand" href="#">HRS System</a>
-    </div>
-    <ul class="nav navbar-nav">
-      <li class="active"><a href="#">Home</a></li>
-      <li><a href="#">Hotels</a></li>
-      <li><a href="#">About</a></li>
-    </ul>
-    <ul class="nav navbar-nav navbar-right">
-      <li><a href="#"><span class="glyphicon glyphicon-user"></span> Sign Up</a></li>
-      <li><a href="#"><span class="glyphicon glyphicon-log-in"></span> Login</a></li>
-    </ul>
-  </div>
-</nav>
+<?php
+
+while($cols = mysqli_fetch_array($hotel_data)){
+
+$hotel_info = $cols['HotelInfo'];
+
+$pic1 = base64_encode($cols['Picture1']);
+$pic2 = base64_encode($cols['Picture2']);
+
+
+
+
+}
+
+
+
+?>
+
 
 
 <div class="container">
   <div class="row">
 
     <div class="col-sm-4">
-
-
-
 
      <div id="myCarousel" class="carousel slide" data-ride="carousel" style=" height: 300px;">
 
@@ -61,16 +83,17 @@
 
   <!-- Slide Wrapper -->
   <div class="carousel-inner" role="listbox">
+
     <div class="item active" style="width: auto;height: 400px;">
     <?php
-    echo '<img src="data:image/jpeg;base64,'.base64_encode( mysqli_fetch_array($hotel_data)['Pictures'] ).'"
-    alt="hotel"/>' ?>
-
-
+    echo '<img src="data:image/jpeg;base64,'.$pic1.'"/>';
+    ?>
     </div>
 
     <div class="item">
-      <img src="data\images\hotel1\kb4YIGx.jpg" alt="cat">
+    <?php
+    echo '<img src="data:image/jpeg;base64,'.$pic2.'"/>'; 
+    ?>
     </div>
 
   </div>
@@ -89,7 +112,7 @@
 </div>
 
 
-
+    <!-- Results Panel -->
     <div class="col-sm-8">
        <div class="panel panel-default">
 
@@ -97,9 +120,11 @@
         <div class="panel-body">
           <?php
 
-          echo  mysqli_fetch_array($hotel_data)['HotelInfo']
+          echo  $hotel_info;
 
           ?>
+
+
 
         </div>
         <div class="panel-heading"> More Hotel Info </div>

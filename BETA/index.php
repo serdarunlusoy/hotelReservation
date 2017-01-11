@@ -11,8 +11,12 @@ include_once 'mysqli_connect.php';
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
         <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
 
+
     </head>
     <body>
+
+
+<!--NAVBAR  NAVBAR  NAVBAR  NAVBAR  NAVBAR  NAVBAR  NAVBAR  NAVBAR  NAVBAR  NAVBAR  NAVBAR  NAVBAR  -->
         <nav class="navbar navbar-inverse">
             <div class="container-fluid">
                 <div class="navbar-header">
@@ -26,15 +30,16 @@ include_once 'mysqli_connect.php';
                 <ul class="nav navbar-nav navbar-right">
                     <?php if (isset($_SESSION['usr_id'])) { ?>
                         <li><p class="navbar-text">Signed in as <?php echo $_SESSION['usr_email']; ?></p></li>
-                        <li><a href="logout.php">Log Out</a></li>
+                        <li><a href="logout.php"><span class="glyphicon glyphicon-log-out"> </span> Log Out</a></li>
                     <?php } else { ?>
                         <li><a href="register.php"><span class="glyphicon glyphicon-user"></span> Sign Up</a></li>
                         <li><a href="login.php"><span class="glyphicon glyphicon-log-in"></span> Login</a></li>
                     <?php } ?>
                 </ul>
             </div>
-
         </nav>
+<!--NAVBAR END NAVBAR END NAVBAR END NAVBAR END NAVBAR END NAVBAR END NAVBAR END NAVBAR END NAVBAR END -->
+
 
     <div class="container">
         <div class="jumbotron" style="position: middle">
@@ -45,7 +50,7 @@ include_once 'mysqli_connect.php';
                     <div class="input-group col-md-12">
                         <input type="text" name="query" class="search-query form-control" placeholder="Search" />
                         <span class="input-group-btn">
-                            <button class="btn btn-primary" type="submit" action="search.php" method="GET" >
+                            <button class="btn btn-primary" type="submit">
                                 <span class="glyphicon glyphicon-search"></span>
                             </button>
                         </span>

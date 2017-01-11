@@ -5,9 +5,9 @@ $username = "root";
 $password = "";
 $dbname = "hrsdb";
 
-$con = mysqli_connect($servername, $username, $password, $dbname);
+$connection = mysqli_connect($servername, $username, $password, $dbname);
 
-if (!$con) {
+if (!$connection) {
     die("Connection failed: " . mysqli_connect_error());
 }
 
