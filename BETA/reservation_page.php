@@ -4,16 +4,23 @@ include_once 'mysqli_connect.php';
 
   $hotel_id = $_GET['hotel_id'];
 
+  
+
   $hotel_data = mysqli_query($connection,"SELECT * FROM hotels
       WHERE (`RegistrationId` = '".$hotel_id."')") or die(mysql_error());
 
   while($cols = mysqli_fetch_array($hotel_data)){
     $daily_price = $cols['DailyPrice'];
   }
-    
-  echo $_POST['People'];
-  
- 
+    $People=$_POST['People'];
+    $RoomAmount=$_POST['RoomAmount'];
+    $StartDate=$_POST['StartDate'];
+    $EndDate=$_POST['EndDate'];
+   $days= round(abs(strtotime($EndDate)-strtotime($StartDate))/86400);
+    $total=$People*$RoomAmount*$daily_price*$days;
+  		
+  		
+							
   
 
 if (isset($_POST['Reservation'])) {
@@ -21,6 +28,7 @@ if (isset($_POST['Reservation'])) {
     $RoomAmount = mysqli_real_escape_string($connection, $_POST['RoomAmount']);
     $StartDate = mysqli_real_escape_string($connection, $_POST['StartDate']);
     $EndDate = mysqli_real_escape_string($connection, $_POST['EndDate']);
+    
    
 
 
@@ -71,30 +79,33 @@ if (isset($_POST['Reservation'])) {
 
                         <div class="form-group">
                             <label for="name">People</label>
-                            <input type="text" name="People" placeholder="People" required value="" class="form-control" />    
+                            <input type="text" name="People" placeholder="People" required value="" class="form-control" />  
+                            
                         </div>
 
                         <div class="form-group">
                             <label for="name">Room Amount</label>
-                            <input type="text" name="Room Amount" placeholder="Room Amount" required class="form-control" />
+                            <input type="text" name="RoomAmount" placeholder="Room Amount" required class="form-control" />
 
                         </div>
 
                         <div class="form-group">
                             <label for="name">Start Date</label>
-                            <input type="date" name="Start Date" placeholder="Start Date" required class="form-control" />
+                            <input type="date" name="StartDate" placeholder="Start Date" required class="form-control" />
                         </div>
                         <div class="form-group">
                             <label for="name">End Date</label>
-                            <input type="date" name="End Date" placeholder="End Date" required class="form-control" />
+                            <input type="date" name="EndDate" placeholder="End Date" required class="form-control" />
                         </div>
+                        	
+                      
 
                         <div class="form-group">
-                            <center>  <input type="submit" name="Total Price" value="Total Price" class="btn btn-primary" /></center>
+                            <center>  <input type="submit" formaction="reservation_page.php?hotel_id=<?php echo $hotel_id ?>" name="Total Price" value="Total Price" class="btn btn-primary"   /></center>
                         </div>
                         
                         <div class="form-group">
-                            <center>  <label for="name">---</label></center>
+                            <center>  <label id="calc" for="name"></label><?php echo $total ?></center>
                         </div>
                         
                         <div class="form-group">
