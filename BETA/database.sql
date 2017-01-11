@@ -1,1 +1,1 @@
-SELECT * FROM hrsdb.hotels;
+SELECT * FROM hrsdb.users;

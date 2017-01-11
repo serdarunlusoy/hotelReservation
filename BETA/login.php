@@ -9,10 +9,10 @@ include_once 'mysqli_connect.php';
 
 if (isset($_POST['login'])) {
 
-    $email = mysqli_real_escape_string($con, $_POST['email']);
-    $password = mysqli_real_escape_string($con, $_POST['password']);
-    $usertype = mysqli_real_escape_string($con, $_POST['usertype']);
-    $result = mysqli_query($con, "SELECT * FROM users WHERE email = '" . $email . "' and password = '" . md5($password) . "' and usertype = '" . $usertype . "'");
+    $email = mysqli_real_escape_string($connection, $_POST['email']);
+    $password = mysqli_real_escape_string($connection, $_POST['password']);
+    $usertype = mysqli_real_escape_string($connection, $_POST['usertype']);
+    $result = mysqli_query($connection, "SELECT * FROM users WHERE email = '" . $email . "' and password = '" . md5($password) . "' and usertype = '" . $usertype . "'");
 
     if ($row = mysqli_fetch_array($result)) {
         if ($row['usertype'] == '1') {
