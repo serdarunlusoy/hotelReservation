@@ -123,7 +123,7 @@ function has_detail($detail){
 
 <!--DETAILS DETAILS DETAILS DETAILS DETAILS DETAILS DETAILS DETAILS DETAILS DETAILS DETAILS DETAILS -->
 
-<button id="reservation_button" class="btn btn-success">Make a Reservation <b>NOW!</b></button>
+
 <div class="panel panel-default">
   <div class="panel-heading"><b>Hotel Facilities and Details</b></div>
   <div class="panel-body">
@@ -149,6 +149,7 @@ function has_detail($detail){
    ?></span>
   </li>
   </ul>
+  <a href="reservation_page.php?hotel_id=<?php echo $hotel; ?>" id="reservation_button" role="button" class="btn btn-success">Make a Reservation <b>NOW!</b></a>
   </div>
 </div>
 <!--DETAILS END DETAILS END DETAILS END DETAILS END DETAILS END DETAILS END DETAILS END DETAILS END -->
