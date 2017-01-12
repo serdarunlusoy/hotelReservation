@@ -3,7 +3,52 @@
   $connection=mysqli_connect("localhost", "root", "","hrsdb") or die("Error connecting to database: ".mysqli_error());
 
 
-  $query = $_GET['query'];
+  if (isset($_GET['query'])){$query = $_GET['query'];
+
+  $query = htmlspecialchars($query);
+    // html conversion
+
+    $query = mysqli_real_escape_string($connection,$query);
+    // anti-SQL injection
+  } else
+  {$query="";}
+ 
+
+if (isset($_POST['advSearch']) ){
+
+  $queryList = array();
+  if ($_GET['query'] != "") {
+    $qQuery="((h.HotelName LIKE '%".$query."%') OR (h.Province LIKE '%".$query."%') 
+      OR (h.City LIKE '%".$query."%'))"; array_push($queryList, $qQuery);}
+  if ($_POST['starCount'] != "") {
+    $starCountQuery = "h.Stars=".$_POST['starCount']; array_push($queryList, $starCountQuery);}
+  if ($_POST['minPrice'] != "" && $_POST['maxPrice'] != "") {
+    $priceQuery = "h.DailyPrice BETWEEN ".$_POST['minPrice']." AND ".$_POST['maxPrice'];
+    array_push($queryList, $priceQuery);}
+    $detailsQuery = "";
+  if (isset($_POST['hasPool'])) {array_push($queryList,"d.Pool=1");}
+  if (isset($_POST['hasPark'])) {array_push($queryList,"d.Park=1");}
+  if (isset($_POST['hasPets'])) {array_push($queryList,"d.Pets=1");}
+  if (isset($_POST['hasInternet'])) {array_push($queryList,"d.Internet=1");}
+  if (isset($_POST['hasParking'])) {array_push($queryList,"d.Parking=1");}
+  if ($_POST['language'] != "") {
+    $languageQuery = "d.Hotels_RegistrationId=h.RegistrationId AND d.Languages REGEXP '".$_POST['language']."'";
+    array_push($queryList,$languageQuery);}
+
+  $advQuery ="SELECT DISTINCT h.* FROM hotels h ,hotel_details d WHERE ";
+  foreach($queryList as $i) {
+    $advQuery = $advQuery.$i." AND ";
+  }
+  $advQuery = substr($advQuery, 0, -5);
+
+  $raw_results =mysqli_query($connection, $advQuery) or die(mysql_error());
+} else{
+
+     $raw_results = mysqli_query($connection,"SELECT h.* FROM hotels h
+      WHERE (h.HotelName LIKE '%".$query."%') OR (h.Province LIKE '%".$query."%') 
+      OR (h.City LIKE '%".$query."%')") or die(mysql_error());
+}
+
 
 
 ?>
@@ -16,12 +61,7 @@
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
-  <style>
-  .num-inp{
-    max-width:50px;
-  }
-
-  </style>
+  <style>.num-inp{max-width:50px;}</style>
 
 </head>
 <body>
@@ -61,7 +101,7 @@
     <form action="search.php" method="GET">
           <div id="custom-search-input" style="padding-bottom:20px;">
               <div class="input-group col-sm-12">
-                  <input type="text" name="query" class="search-query form-control" placeholder="Search" />
+                  <input id="srch" type="text" name="query" value="" class="search-query form-control" placeholder="Search" />
                   <span class="input-group-btn">
                       <button class="btn btn-primary" type="submit">
                           <span class="glyphicon glyphicon-search"></span>
@@ -72,35 +112,40 @@
       </form>
       <!--SEARCH END SEARCH END SEARCH END SEARCH END SEARCH END SEARCH END SEARCH END SEARCH -->
 
+      <script type="text/javascript">
+      function retrieveQuery(){
+        document.getElementById('advsrch').action = "search.php?query=" + document.getElementById('srch').value;
+      }
+      </script>
 
       <div class="panel panel-default">
 
-        <form action="search.php" method="GET">
-        <div class="panel-heading"> <button type="submit" class="btn btn-primary btn-sm btn-block">Advanced Search</button> </div>
+        <form id="advsrch" action="search.php?query=" method="POST">
+        <input type="hidden" value="true" name="advSearch" />
+        <div class="panel-heading"> <button type="submit" name="query" onclick="retrieveQuery()" class="btn btn-primary btn-sm btn-block">Advanced Search</button> </div>
         <div class="panel-body">
           <ul class="list-group">
               <li class="list-group-item"> Star Count: 
-              <select class="form-control" style="width:60px;display: inline-block;" id="sel1">
-                <option> </option>
-                <option>1</option>
-                <option>2</option>
-                <option>3</option>
-                <option>4</option>
-                <option>5</option>
+              <select class="form-control" style="width:60px;display: inline-block;" name="starCount">
+                <option value=""> </option>
+                <option value="1">1</option>
+                <option value="2">2</option>
+                <option value="3">3</option>
+                <option value="4">4</option>
+                <option value="5">5</option>
               </select></li>
-              <li class="list-group-item">Price Between: € <input class="num-inp" type="number" value="0"> and 
-                <input class="num-inp" type="number"> </li>
-              <li class="list-group-item"> <input class="num-inp" type="number" value="0"> and 
-                <input class="num-inp" type="number"> </li> </li>
-                <li class="list-group-item"><label class="checkbox-inline"><input type="checkbox" value="">Pool</label>
-<label class="checkbox-inline"><input name="hasPark" type="checkbox" value="">Park</label>
-<label class="checkbox-inline"><input name="hasPets" type="checkbox" value="">Pets</label><p></p>
-<label class="checkbox-inline"><input name="hasInternet" type="checkbox" value="">Internet</label>
-<label class="checkbox-inline"><input name="hasParking" type="checkbox" value="">Parking Lot</label>
+
+              <li class="list-group-item">Price Between: € <input class="num-inp" name="minPrice" value="" type="number"> and 
+                <input class="num-inp" type="number"name="maxPrice" value="" type="number"> </li>
+                <li class="list-group-item"><label class="checkbox-inline"><input type="checkbox" value="1">Pool</label>
+<label class="checkbox-inline"><input name="hasPark" type="checkbox" value="1">Park</label>
+<label class="checkbox-inline"><input name="hasPets" type="checkbox" value="1">Pets</label><p></p>
+<label class="checkbox-inline"><input name="hasInternet" type="checkbox" value="1">Internet</label>
+<label class="checkbox-inline"><input name="hasParking" type="checkbox" value="1">Parking Lot</label>
                 </li>
               <li class="list-group-item">
                       Language: 
-                     <select class="form-control">
+                     <select name="language" class="form-control">
                         <option value=""> </option>
                         <option value="Afrikanns">Afrikanns</option>
                         <option value="Albanian">Albanian</option>
@@ -188,23 +233,16 @@
     <div class='col-sm-8'>
       <div class="panel panel-default">
 
-          <div class="panel-heading"> Results for "<?php echo $query; ?>" </div>
+          <div class="panel-heading"> Results for <?php if(isset($_POST['advSearch'])){
+            echo "Advanced Search";} else{ echo '"'.$query.'"';} ?> </div>
           <div class="panel-body">
 
 <?php
 
   $min_length = 3;
 
-  if(strlen($query) >= $min_length){ // if query length > minLen
-    $query = htmlspecialchars($query);
-    // html conversion
-
-    $query = mysqli_real_escape_string($connection,$query);
-    // anti-SQL injection
-
-    $raw_results = mysqli_query($connection,"SELECT * FROM hotels
-      WHERE (`HotelName` LIKE '%".$query."%') OR (`Province` LIKE '%".$query."%') 
-      OR (`City` LIKE '%".$query."%')") or die(mysql_error());
+  if(strlen($query) >= $min_length || isset($_POST['advSearch'])){ // if query length > minLen
+    
 
     if(mysqli_num_rows($raw_results) > 0){ // if there are results
 
@@ -226,9 +264,9 @@
 
         echo "            <tr class='hotel_result'>
               <td id='hotel_name'>".$results['HotelName']."</td>
-              <td id='hotel_type'>".$results['Stars']."</td>
-              <td id='hotel_loc'>".$results['Province']."</td>
-              <td id='hotel_daily_pr'>".$results['DailyPrice']."</td>
+              <td id='hotel_type'>".str_repeat("<span class='glyphicon glyphicon-star'></span>",$results['Stars'])."</td>
+              <td id='hotel_loc'>".$results['City'].", ".$results['Country']."</td>
+              <td id='hotel_daily_pr'>€".$results['DailyPrice']."</td>
               <td id='info_button'><a href='info_page.php?hotel_id=".$results['RegistrationId']."'
               class='btn btn-default'>Info Page</a></td>
 
