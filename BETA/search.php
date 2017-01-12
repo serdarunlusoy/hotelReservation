@@ -1,7 +1,6 @@
 <?php
   session_start();
-  $connection=mysqli_connect("localhost", "root", "","hrsdb") or die("Error connecting to database: ".mysqli_error());
-
+  include_once 'mysqli_connect.php';
 
   if (isset($_GET['query'])){$query = $_GET['query'];
 
@@ -12,13 +11,13 @@
     // anti-SQL injection
   } else
   {$query="";}
- 
+
 
 if (isset($_POST['advSearch']) ){
 
   $queryList = array();
   if ($_GET['query'] != "") {
-    $qQuery="((h.HotelName LIKE '%".$query."%') OR (h.Province LIKE '%".$query."%') 
+    $qQuery="((h.HotelName LIKE '%".$query."%') OR (h.Province LIKE '%".$query."%')
       OR (h.City LIKE '%".$query."%'))"; array_push($queryList, $qQuery);}
   if ($_POST['starCount'] != "") {
     $starCountQuery = "h.Stars=".$_POST['starCount']; array_push($queryList, $starCountQuery);}
@@ -45,7 +44,7 @@ if (isset($_POST['advSearch']) ){
 } else{
 
      $raw_results = mysqli_query($connection,"SELECT h.* FROM hotels h
-      WHERE (h.HotelName LIKE '%".$query."%') OR (h.Province LIKE '%".$query."%') 
+      WHERE (h.HotelName LIKE '%".$query."%') OR (h.Province LIKE '%".$query."%')
       OR (h.City LIKE '%".$query."%')") or die(mysql_error());
 }
 
@@ -125,7 +124,7 @@ if (isset($_POST['advSearch']) ){
         <div class="panel-heading"> <button type="submit" name="query" onclick="retrieveQuery()" class="btn btn-primary btn-sm btn-block">Advanced Search</button> </div>
         <div class="panel-body">
           <ul class="list-group">
-              <li class="list-group-item"> Star Count: 
+              <li class="list-group-item"> Star Count:
               <select class="form-control" style="width:60px;display: inline-block;" name="starCount">
                 <option value=""> </option>
                 <option value="1">1</option>
@@ -135,7 +134,7 @@ if (isset($_POST['advSearch']) ){
                 <option value="5">5</option>
               </select></li>
 
-              <li class="list-group-item">Price Between: € <input class="num-inp" name="minPrice" value="" type="number"> and 
+              <li class="list-group-item">Price Between: € <input class="num-inp" name="minPrice" value="" type="number"> and
                 <input class="num-inp" type="number"name="maxPrice" value="" type="number"> </li>
                 <li class="list-group-item"><label class="checkbox-inline"><input type="checkbox" value="1">Pool</label>
 <label class="checkbox-inline"><input name="hasPark" type="checkbox" value="1">Park</label>
@@ -144,7 +143,7 @@ if (isset($_POST['advSearch']) ){
 <label class="checkbox-inline"><input name="hasParking" type="checkbox" value="1">Parking Lot</label>
                 </li>
               <li class="list-group-item">
-                      Language: 
+                      Language:
                      <select name="language" class="form-control">
                         <option value=""> </option>
                         <option value="Afrikanns">Afrikanns</option>
@@ -242,7 +241,7 @@ if (isset($_POST['advSearch']) ){
   $min_length = 3;
 
   if(strlen($query) >= $min_length || isset($_POST['advSearch'])){ // if query length > minLen
-    
+
 
     if(mysqli_num_rows($raw_results) > 0){ // if there are results
 

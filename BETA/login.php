@@ -11,9 +11,8 @@ if (isset($_POST['login'])) {
 
     $email = mysqli_real_escape_string($connection, $_POST['email']);
     $password = mysqli_real_escape_string($connection, $_POST['password']);
-    $usertype = mysqli_real_escape_string($connection, $_POST['usertype']);
-    $result = mysqli_query($connection, "SELECT * FROM users WHERE email = '" . $email . "' and password = '" . md5($password) . "' and usertype = '" . $usertype . "'");
-
+    #$usertype = mysqli_real_escape_string($connection, $_POST['usertype']);
+    $result = mysqli_query($connection, "SELECT * FROM users WHERE email = '" . $email . "' and password = '" . md5($password) . "'");
     if ($row = mysqli_fetch_array($result)) {
         if ($row['usertype'] == '1') {
             $_SESSION['usr_id'] = $row['userId'];
@@ -84,22 +83,6 @@ if (isset($_POST['login'])) {
                         </div>
 
                         <div class="form-group">
-                            <label for="name">User Type</label>
-                            <div class="radio">
-                                <label><input type="radio" name="usertype" value="1">User</label>
-                            </div>
-                            <div class="radio">
-                                <label><input type="radio" name="usertype" value="2">Admin</label>
-                            </div>
-                            <div class="radio">
-                                <label><input type="radio" name="usertype" value="3">Hotel Admin</label>
-                            </div>
-                            <div class="radio">
-                                <label><input type="radio" name="usertype" value="4">Registrant</label>
-                            </div>
-                        </div>
-
-                        <div class="form-group">
                             <input type="submit" name="login" value="Login" class="btn btn-primary" />
                         </div>
                     </fieldset>
@@ -112,7 +95,7 @@ if (isset($errormsg)) {
             </div>
         </div>
         <div class="row">
-            <div class="col-md-4 col-md-offset-4 text-center">	
+            <div class="col-md-4 col-md-offset-4 text-center">
                 New User? <a href="register.php">Sign Up Here</a>
             </div>
         </div>

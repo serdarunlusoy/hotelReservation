@@ -50,8 +50,8 @@ function has_detail($detail){
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
-  <style> #reservation_button { 
-          width: 100%; 
+  <style> #reservation_button {
+          width: 100%;
           margin:10px 0px 10px 0px;
           padding:10px 0px 10px 0px;
           font-size:19px;}
@@ -61,7 +61,7 @@ function has_detail($detail){
 
 </head>
 
-
+<body>
 
 
 
@@ -140,7 +140,7 @@ function has_detail($detail){
   </li>
   <li class="list-group-item">
   <b>Spoken Languages:</b> <p></p><span style="font-weight:none;">
-  <?php 
+  <?php
 
     foreach($languages as $language){
       echo "<i class='glyphicon glyphicon-triangle-right'></i> ".$language."<p></p>";
