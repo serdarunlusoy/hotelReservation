@@ -5,15 +5,9 @@ include_once 'mysqli_connect.php';
 if (!isset($_SESSION['usr_id'])) {
     header("Location: login.php");
 }
-   $hotel_id = $_SESSION['hotel_id'];
-
-$hotel_data = mysqli_query($connection, "SELECT * FROM hotels
-      WHERE (`RegistrationId` = '" . $hotel_id . "')") or die(mysql_error());
+ 
 
 
-while ($cols = mysqli_fetch_array($hotel_data)) {
-    $Hotel_Name = $cols['HotelName'];
-}
 
    
 $user_id = $_SESSION['usr_id'];
@@ -22,15 +16,6 @@ $reservation_data = mysqli_query($connection, "SELECT * FROM reservations
       WHERE (`users_userId` = '" . $user_id  . "')") or die(mysql_error());
 
 
-while ($cols = mysqli_fetch_array($reservation_data)) {
-    $People = $cols['People'];
-    $RoomAmount =$cols['RoomAmount'];
-    $StartDate = $cols['StartDate'];
-    $EndDate =$cols['EndDate'];
-    $Price = $cols['Price'];
-    $HotelsId =$cols['Hotels_RegistrationId'];
-    
-}
 
 ?>
 <!DOCTYPE html>
@@ -82,12 +67,50 @@ while ($cols = mysqli_fetch_array($reservation_data)) {
                         <legend>Reservation List</legend>
 
                         <div class="form-group">
-                           <br> <label for="name">People: <?php echo $People ?> </label></br>
-                           <br> <label for="name">Hotel Name : <?php echo $Hotel_Name ?> </label></br>
-                           <br> <label for="name">Room Amount : <?php echo $RoomAmount ?> </label></br>
-                           <br> <label for="name">Start Date : <?php echo $StartDate ?> </label></br>
-                           <br> <label for="name">End Date : <?php echo $EndDate ?> </label></br>
-                           <br><input type="submit" name="Delete" value="Delete reservation" class="btn btn-primary" /></br>
+                          <?php 
+
+ if(mysqli_num_rows($reservation_data) > 0){ // if there are results
+
+      echo "
+      <table class='table table-hover' style='max-width: none'>
+        <thead>
+          <tr>
+            
+            <th>People Amount</th>
+            <th>Room Amount</th>
+            <th>Total Price Price</th>
+            <th>Start Date </th>
+            <th>End Date </th>
+            <th></th>
+          </tr>
+        </thead>
+        <tbody>";
+
+      while($results = mysqli_fetch_array($reservation_data)){
+        $reservationId=$results['reservationId'];
+
+        echo "            <tr>
+              
+              <td>".$results['People']."</td>
+              <td>".$results['RoomAmount']."</td>
+              <td>€".$results['Price']."</td>
+              <td>".$results['StartDate']."</td>
+              <td>".$results['EndDate']."</td>
+              <td id='delete_button' name='reservationId'><a href='deletereservation.php?reservationId=<?php echo $reservationId ?>' 
+              class='btn btn-default'>Cancel Reservation</a></td>
+
+            </tr>";
+      }
+      echo "          </tbody>
+        </table>
+    </div>";
+
+    }
+    else{ // if there is no matching rows do following
+      echo "No results";
+    }
+
+                          ?>
                             
                         </div>
                     </fieldset>
