@@ -4,7 +4,6 @@ session_start();
 if (isset($_SESSION['usr_id'])) {
     header("Location: index.php");
 }
-
 include_once 'mysqli_connect.php';
 
 $error = false;
@@ -22,6 +21,11 @@ if (isset($_POST['signup'])) {
     if (!filter_var($email, FILTER_VALIDATE_EMAIL)) {
         $error = true;
         $email_error = "Please Enter Valid Email ID";
+    }
+    $testEmailResult = mysqli_query($connection, "SELECT EXISTS(SELECT * FROM users WHERE email='".$email."')");
+    if($testEmailResult == true){
+        $error = true;
+        $email_error = "Email already exists!";
     }
     if (strlen($password) < 6) {
         $error = true;
