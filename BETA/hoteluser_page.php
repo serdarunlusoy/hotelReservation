@@ -2,7 +2,17 @@
   session_start();
   include_once 'mysqli_connect.php';
 
+  $user_id = $_SESSION['usr_id'];
+  $redirectToHotelReg = false;
 
+
+
+  $testHasHotel = mysqli_query($connection,
+    "SELECT * FROM `hotel users` WHERE users_userId='".$user_id."'");
+
+  if (mysqli_num_rows($testHasHotel) == 0) {
+    $redirectToHotelReg = true;
+  }
 
 ?>
 
@@ -43,6 +53,20 @@
             </div>
         </nav>
 <!--NAVBAR END NAVBAR END NAVBAR END NAVBAR END NAVBAR END NAVBAR END NAVBAR END NAVBAR END NAVBAR END -->
+
+
+
+<?php
+if($redirectToHotelReg == true){
+echo '<div class="alert alert-danger">
+  <strong>Attention!</strong> It seems you have no registered hotel, you should <a href="register_hotel.php" class="alert-link">register a hotel here!</a>
+</div>';
+}
+
+?>
+
+
+
 
 
 

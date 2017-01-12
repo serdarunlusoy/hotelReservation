@@ -17,13 +17,12 @@ if (isset($_POST['signup'])) {
     } else {$error = true;
     $usertype_error = "Please pick a User Type";}
 
-
     if (!filter_var($email, FILTER_VALIDATE_EMAIL)) {
         $error = true;
         $email_error = "Please Enter Valid Email ID";
     }
-    $testEmailResult = mysqli_query($connection, "SELECT EXISTS(SELECT * FROM users WHERE email='".$email."')");
-    if($testEmailResult == true){
+    $testEmailResult = mysqli_query($connection, "SELECT 1 FROM users WHERE email='".$email."' LIMIT 1");
+    if(mysqli_num_rows($testEmailResult) == 1){
         $error = true;
         $email_error = "Email already exists!";
     }
