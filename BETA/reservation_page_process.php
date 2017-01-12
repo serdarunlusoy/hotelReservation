@@ -54,8 +54,21 @@ $user_id = mysqli_real_escape_string($connection, $_SESSION['usr_id']);
                 </ul>
             </div>
         </nav>
-       
-    
+        
+    <div class="container">
+        <div class="row">
+            <div class="col-md-4 col-md-offset-4 well">
+                <form role="form" action="<?php echo $_SERVER['PHP_SELF']; ?>" method="post" name="reservation">
+                    <fieldset>
+                        <center><label>Success Reservation!</label></center>
+                        <center><br><input type="submit" name="Delete" value="Continue Main Page !" formaction="index.php" class="btn btn-primary" /></br></center>
+                            
+                       
+                    </fieldset>
+
+
+            </div>
+        </div>
     </body>
 </html>
 
