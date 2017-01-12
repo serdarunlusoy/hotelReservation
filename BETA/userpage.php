@@ -1,6 +1,7 @@
 <?php
 session_start();
 include_once 'mysqli_connect.php';
+
 ?>
 <!DOCTYPE html>
 <html>
