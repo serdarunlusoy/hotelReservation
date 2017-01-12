@@ -116,9 +116,9 @@ if (isset($_POST['TotalPrice'])) {
                                 <?php
                                 if (!isset($_SESSION['usr_id'])) {
                                     echo '<center><label>You need to login to make reservation</label></center>';
-                                    echo '<center>  <input type="submit" name="Reservation" value="Rezerve et" formaction="reservation_page_process.php"  class="btn btn-primary disabled" /></center>';
+                                    echo '<br><center>  <input type="submit" name="Reservation" value="Reservation" formaction="reservation_page_process.php"  class="btn btn-primary disabled" /></center></br>';
                                 } else
-                                    echo '<center>  <input type="submit" name="Reservation" value="Rezerve et" formaction="reservation_page_process.php"  class="btn btn-primary" /></center>';
+                                    echo '<br><center>  <input type="submit" name="Reservation" value="Reservation" formaction="reservation_page_process.php"  class="btn btn-primary" /></center></br>';
                                 ?>
 
                         </div>
