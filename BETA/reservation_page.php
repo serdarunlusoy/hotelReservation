@@ -3,8 +3,11 @@ session_start();
 include_once 'mysqli_connect.php';
 
 $hotel_id = $_GET['hotel_id'];
+if (isset($hotel_id))
+    $_SESSION['hotel_id'] = $hotel_id;
 
-$user_id = $_SESSION['usr_id'];
+if(isset($_SESSION['usr_id']))
+    $user_id = $_SESSION['usr_id'];
 
 
 $hotel_data = mysqli_query($connection, "SELECT * FROM hotels
@@ -14,31 +17,22 @@ $hotel_data = mysqli_query($connection, "SELECT * FROM hotels
 while ($cols = mysqli_fetch_array($hotel_data)) {
     $daily_price = $cols['DailyPrice'];
 }
-$People = $_POST['People'];
-$RoomAmount = $_POST['RoomAmount'];
-$StartDate = $_POST['StartDate'];
-$EndDate = $_POST['EndDate'];
-$days = round(abs(strtotime($EndDate) - strtotime($StartDate)) / 86400);
-$total = $People * $RoomAmount * $daily_price * $days;
 
 
-if (isset($_POST['reservations'])) {
-    $People = mysqli_real_escape_string($connection, $_POST['People']);
-    $RoomAmount = mysqli_real_escape_string($connection, $_POST['RoomAmount']);
-    $StartDate = mysqli_real_escape_string($connection, $_POST['StartDate']);
-    $EndDate = mysqli_real_escape_string($connection, $_POST['EndDate']);
-    $total = mysqli_real_escape_string($connection, $_POST['Price']);
-    $hotel_id = mysqli_real_escape_string($connection, $_POST['Hotels_RegistrationId']);
-    $user_id = mysqli_real_escape_string($connection, $_POST['users_userId']);
-    
-
-    if (!$error) {
-        if (mysqli_query($connection, "INSERT INTO reservations(People,RoomAmount,StartDate,EndDate,Price,Hotels_RegistrationId,users_userId) VALUES('" . $People . "', '" . $RoomAmount . "','" . $StartDate . "','" . $EndDate . "','" . $total . "','" . $hotel_id . "','" . $user_id . "')")) {
-            $successmsg = "Successfully Registered! <a href='login.php'>Click here to Login</a>";
-        } else {
-            $errormsg = "Error";
-        }
-    }
+if (isset($_POST['TotalPrice'])) {
+    $People = $_POST['People'];
+    $RoomAmount = $_POST['RoomAmount'];
+    $StartDate = $_POST['StartDate'];
+    $EndDate = $_POST['EndDate'];
+    $days = round(abs(strtotime($EndDate) - strtotime($StartDate)) / 86400);
+    $total = $People * $RoomAmount * $daily_price * $days;
+    $_SESSION['Price'] = $total;
+}else {
+    $People = "";
+    $RoomAmount = "";
+    $StartDate = "";
+    $EndDate = "";
+    $total = "0";
 }
 ?>
 
@@ -68,6 +62,7 @@ if (isset($_POST['reservations'])) {
                     <?php if (isset($_SESSION['usr_id'])) { ?>
                         <li><p class="navbar-text">Signed in as <?php echo $_SESSION['usr_email']; ?></p></li>
                         <li><a href="logout.php"><span class="glyphicon glyphicon-log-out"> </span> Log Out</a></li>
+                        <li><a href="logout.php"><span class="glyphicon glyphicon-user"> </span> Profile</a></li>
                     <?php } else { ?>
                         <li><a href="register.php"><span class="glyphicon glyphicon-user"></span> Sign Up</a></li>
                         <li><a href="login.php"><span class="glyphicon glyphicon-log-in"></span> Login</a></li>
@@ -75,7 +70,7 @@ if (isset($_POST['reservations'])) {
                 </ul>
             </div>
         </nav>
-<!--NAVBAR END NAVBAR END NAVBAR END NAVBAR END NAVBAR END NAVBAR END NAVBAR END NAVBAR END NAVBAR END -->
+        <!--NAVBAR END NAVBAR END NAVBAR END NAVBAR END NAVBAR END NAVBAR END NAVBAR END NAVBAR END NAVBAR END -->
 
 
     <div class="container">
@@ -109,14 +104,23 @@ if (isset($_POST['reservations'])) {
 
 
                         <div class="form-group">
-                            <center>  <input type="submit" formaction="reservation_page.php?hotel_id=<?php echo $hotel_id ?>" name="Total Price" value="Total Price" class="btn btn-primary"   /></center>
-                            <center>  <label for="name"</label><?php echo $total?></center>
+                            <center>  <input type="submit" formaction="reservation_page.php?hotel_id=<?php echo $hotel_id ?>" name="TotalPrice" value="Total Price" class="btn btn-primary"   /></center>
+                            <!--<center>  <label for="name"</label><?php echo $total ?></center>-->
+                            <!--<center> <input type="textbox" name="Price" placeholder="0" value="<?php echo $total ?>" class="form-control" style="text-align:center;" disabled />-->
                         </div>
 
-                       
+
 
                         <div class="form-group">
-                            <center>  <input type="submit" name="Reservation" value="Reservation" formaction="reservation_page.php?hotel_id=<?php echo $hotel_id ?>" class="btn btn-primary" /></center>
+                            <center> <input type="text" name="Price" placeholder="0" value="<?php echo $total ?>" class="form-control" style="text-align:center;" disabled />
+                                <?php
+                                if (!isset($_SESSION['usr_id'])) {
+                                    echo '<center><label>You need to login to make reservation</label></center>';
+                                    echo '<center>  <input type="submit" name="Reservation" value="Rezerve et" formaction="reservation_page_process.php"  class="btn btn-primary disabled" /></center>';
+                                } else
+                                    echo '<center>  <input type="submit" name="Reservation" value="Rezerve et" formaction="reservation_page_process.php"  class="btn btn-primary" /></center>';
+                                ?>
+
                         </div>
 
 

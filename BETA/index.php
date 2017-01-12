@@ -31,9 +31,11 @@ include_once 'mysqli_connect.php';
                     <?php if (isset($_SESSION['usr_id'])) { ?>
                         <li><p class="navbar-text">Signed in as <?php echo $_SESSION['usr_email']; ?></p></li>
                         <li><a href="logout.php"><span class="glyphicon glyphicon-log-out"> </span> Log Out</a></li>
+                        <li><a href="userpage.php"><span class="glyphicon glyphicon-user"> </span> Profile</a></li>
+                        
                     <?php } else { ?>
                         <li><a href="register.php"><span class="glyphicon glyphicon-user"></span> Sign Up</a></li>
-                        <li><a href="login.php"><span class="glyphicon glyphicon-log-in"></span> Login</a></li>
+                        <li><a href="login.php"><span class="glyphicon glyphicon-user"></span> Login</a></li>
                     <?php } ?>
                 </ul>
             </div>

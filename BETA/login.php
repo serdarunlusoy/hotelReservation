@@ -57,10 +57,12 @@ if (isset($_POST['login'])) {
                     <li class="active"><a href="index.php">Home</a></li>
                     <li><a href="#">Hotels</a></li>
                     <li><a href="#">About</a></li>
+                 
                 </ul>
                 <ul class="nav navbar-nav navbar-right">
                     <li><a href="register.php"><span class="glyphicon glyphicon-user"></span> Sign Up</a></li>
                     <li><a href="login.php"><span class="glyphicon glyphicon-log-in"></span> Login</a></li>
+                   
                 </ul>
             </div>
         </nav>
