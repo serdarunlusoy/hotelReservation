@@ -134,9 +134,10 @@ header('Content-Type: text/html; charset=utf-8');
                 <option value="5">5</option>
               </select></li>
 
-              <li class="list-group-item">Price Between: € <input class="num-inp" name="minPrice" value="" type="number"> and
-                <input class="num-inp" type="number"name="maxPrice" value="" type="number"> </li>
-                <li class="list-group-item"><label class="checkbox-inline"><input type="checkbox" value="1">Pool</label>
+              <li class="list-group-item">Price Between: € <input class="num-inp" name="minPrice" value="" type="number" min="0"> and
+                <input class="num-inp" type="number"name="maxPrice" value="" type="number" min="0"> </li>
+                <li class="list-group-item">
+<label class="checkbox-inline"><input type="checkbox" value="1">Pool</label>
 <label class="checkbox-inline"><input name="hasPark" type="checkbox" value="1">Park</label>
 <label class="checkbox-inline"><input name="hasPets" type="checkbox" value="1">Pets</label><p></p>
 <label class="checkbox-inline"><input name="hasInternet" type="checkbox" value="1">Internet</label>

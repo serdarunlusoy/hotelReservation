@@ -16,32 +16,56 @@
 
 
 $error = false;
-$usertype = "0";
-if (isset($_POST['signup'])) {
+if (isset($_POST['register'])) {
     $hotelName = mysqli_real_escape_string($connection, $_POST['hotelName']);
     $hotelInfo = mysqli_real_escape_string($connection, $_POST['hotelInfo']);
-    $city = $_POST['city'];
-    $province = $_POST['province'];
-    $country = $_POST['country'];
-    $hasPool = $_POST['hasPool'];
-    $hasPark = $_POST['hasPark'];
-    $hasPest = $_POST['hasPets'];
-    $hasInternet = $_POST['hasInternet'];
-    $hasParking = $_POST['hasParking'];
+    $phone = mysqli_real_escape_string($connection, $_POST['phone']);
+    $city = mysqli_real_escape_string($connection, $_POST['city']);
+    $province = mysqli_real_escape_string($connection, $_POST['province']);
+    $country = mysqli_real_escape_string($connection, $_POST['country']);
+    if(isset($_POST['hasPool'])){$hasPool = $_POST['hasPool'];}else{$hasPool = 0;}
+    if(isset($_POST['hasPark'])){$hasPark = $_POST['hasPark'];}else{$hasPark = 0;}
+    if(isset($_POST['hasPets'])){$hasPets = $_POST['hasPets'];}else{$hasPets = 0;}
+    if(isset($_POST['hasInternet'])){$hasInternet = $_POST['hasInternet'];}else{$hasInternet = 0;}
+    if(isset($_POST['hasParking'])){$hasParking = $_POST['hasParking'];}else{$hasParking = 0;}
+    $roomCount = $_POST['roomCount'];
+
+
+    $dailyPrice = number_format(floatval($_POST['dailyPrice']), 2, '.', '');
 
     $languages = "";
     foreach ($_POST['languages'] as $lang)
     {
-           $languages .= $lang . ",";
+           $languages .= $lang . " ";
     }
     $languages = substr($languages,0,-1);
     $starCount = $_POST['starCount'];
 
 
+    $image1= addslashes(file_get_contents($_FILES['image1']['tmp_name']));
+    $image2= addslashes(file_get_contents($_FILES['image2']['tmp_name']));
 
+    if(!$error){
+      $q1 = "INSERT INTO hotels (HotelName, Phone, Stars, DailyPrice, RoomCount, City, Province, Country, HotelInfo, Picture1, Picture2)
+      VALUES ( '".$hotelName."', '".$phone."', '".$starCount."', '".$dailyPrice."', '".$roomCount."', '".$city."', '"
+        .$province."', '".$country."', '".$hotelInfo."', '".$image1."', '".$image2."')";
+      mysqli_query($connection, $q1);
+      $hotel_id = mysqli_insert_id($connection);
+      $q2 = "INSERT INTO hotel_details (Hotels_RegistrationId, Pool, Park, Pets, Internet, Parking, Languages)
+      VALUES ( '".$hotel_id."', '".$hasPool."', '".$hasPark."', '".$hasPets."', '".$hasInternet."', '".$hasParking."', '"
+        .$languages."')";
+      mysqli_query($connection, $q2);
+      $q3 = "INSERT INTO `hotel users` (Hotels_RegistrationId, users_userId)
+      VALUES ( '".$user_id."', '".$hotel_id."')";
+      mysqli_query($connection, $q3);
+
+    }
 
 }
 ?>
+
+
+
 
 <!DOCTYPE html>
 <html>
@@ -52,7 +76,12 @@ if (isset($_POST['signup'])) {
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
 
+  <script type="text/javascript">
 
+
+
+
+</script>
 
 
 </head>
@@ -83,13 +112,17 @@ if (isset($_POST['signup'])) {
 
 
 <div class="col-md-10 col-md-offset-1 well">
-  <form class="form-horizontal" action="<?php echo $_SERVER['PHP_SELF']; ?>" method="post">
+  <form enctype="multipart/form-data" class="form-horizontal" action="<?php echo $_SERVER['PHP_SELF']; ?>" method="post">
     <fieldset>
       <legend>Hotel Registration</legend>
       <div class="form-group">
-        <label for="inputEmail" class="col-lg-2 control-label">Hotel Name</label>
-        <div class="col-lg-10">
+        <label class="col-lg-2 control-label">Hotel Name</label>
+        <div class="col-lg-6">
           <input class="form-control" placeholder="Hotel Name" name="hotelName" type="text">
+        </div>
+        <label class="col-lg-1 control-label">Phone</label>
+        <div class="col-lg-3">
+          <input class="form-control" placeholder="Phone Number" value="+" name="phone" type="text">
         </div>
       </div>
       <div class="form-group">
@@ -115,17 +148,17 @@ if (isset($_POST['signup'])) {
       </div>
       <div class="form-group">
         <label for="details" class="col-lg-1 control-label">Details</label>
-        <div id="details" class="col-lg-5 checkbox">
+        <div id="details" class="col-lg-4 checkbox">
 
-            <label><input name="hasPool" type="checkbox"> Has a Pool</label>
-            <label><input name="hasPark" type="checkbox"> Has a Park</label>
-            <label><input name="hasPets" type="checkbox"> Allows Pets</label>
+            <label><input name="hasPool" type="checkbox" value="1"> Has a Pool</label>
+            <label><input name="hasPark" type="checkbox" value="1"> Has a Park</label>
+            <label><input name="hasPets" type="checkbox" value="1"> Allows Pets</label>
             <p></p>
-            <label><input name="hasInternet" type="checkbox"> Has Internet</label>
-            <label><input name="hasParking" type="checkbox"> Has a Parking Lot</label>
+            <label><input name="hasInternet" type="checkbox" value="1"> Has Internet</label>
+            <label><input name="hasParking" type="checkbox" value="1"> Has a Parking Lot</label>
         </div>
         <div class="col-lg-2">
-          <label for="starCount" class="col-lg-4 control-label">Stars</label>
+          <label for="starCount" class="control-label">Stars</label>
             <select class="form-control" id="starCount" name="starCount">
               <option value="1">1</option>
               <option value="2">2</option>
@@ -133,6 +166,23 @@ if (isset($_POST['signup'])) {
               <option value="4">4</option>
               <option value="5">5</option>
             </select>
+          </div>
+          <div class="col-lg-2">
+            <div class="form-group">
+              <label class="control-label">Daily Price</label>
+              <div class="input-group">
+                <span class="input-group-addon">&euro;</span>
+                <input class="form-control" name="dailyPrice" type="number" min="0">
+              </div>
+            </div>
+          </div>
+          <div class="col-lg-2" style="padding-left:30px;">
+            <div class="form-group">
+              <label class="control-label">Room Count</label>
+              <div class="input-group">
+                <input class="form-control" name="roomCount" type="number" min="0">
+              </div>
+            </div>
           </div>
       </div>
       <div class="form-group">
@@ -247,7 +297,5 @@ if (isset($_POST['signup'])) {
   </form>
 </div>
 
-
-
-
 </body>
+</html>
