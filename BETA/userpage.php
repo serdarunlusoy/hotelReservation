@@ -62,7 +62,7 @@ $reservation_data = mysqli_query($connection, "SELECT * FROM reservations
          <div class="container">
         <div class="row">
             <div class="col-md-4 col-md-offset-4 well">
-                <form role="form" action="<?php echo $_SERVER['PHP_SELF']; ?>" method="post" name="reservation">
+                <form role="form" action='deletereservation.php' method="get" name="reservationId">
                     <fieldset>
                         <legend>Reservation List</legend>
 
@@ -78,9 +78,10 @@ $reservation_data = mysqli_query($connection, "SELECT * FROM reservations
             
             <th>People Amount</th>
             <th>Room Amount</th>
-            <th>Total Price Price</th>
+            <th>Total Price </th>
             <th>Start Date </th>
             <th>End Date </th>
+            <th></th>
             <th></th>
           </tr>
         </thead>
@@ -96,12 +97,13 @@ $reservation_data = mysqli_query($connection, "SELECT * FROM reservations
               <td>€".$results['Price']."</td>
               <td>".$results['StartDate']."</td>
               <td>".$results['EndDate']."</td>
-              <td id='delete_button' name='reservationId'><a href='deletereservation.php?reservationId=<?php echo $reservationId ?>' 
-              class='btn btn-default'>Cancel Reservation</a></td>
+              <td><input type='hidden' name='reservationId' value=".$results['reservationId']."></td>
+              <td ><input type='submit' name='reservationId' value='Cancel Reservation' class='btn btn-default'></td>
 
             </tr>";
       }
       echo "          </tbody>
+      
         </table>
     </div>";
 
@@ -114,6 +116,10 @@ $reservation_data = mysqli_query($connection, "SELECT * FROM reservations
                             
                         </div>
                     </fieldset>
+                    </form>
+                    </div>
+                    </div>
+                    </div>
 
 
             </div>
