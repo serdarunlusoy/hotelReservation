@@ -25,11 +25,11 @@ if (isset($_POST['login'])) {
         } else if ($row['usertype'] == '3') {
             $_SESSION['usr_id'] = $row['userId'];
             $_SESSION['usr_email'] = $row['email'];
-            header("Location: admin_page.php");
-        } else {
+            header("Location: hoteluser_page.php");
+        } else if ($row['usertype'] == '4') {
             $_SESSION['usr_id'] = $row['userId'];
             $_SESSION['usr_email'] = $row['email'];
-            header("Location: hotel_admin_page.php");
+            header("Location: registrant_page.php");
         }
     } else {
         $errormsg = "Incorrect Email or Password!!!";
@@ -55,14 +55,10 @@ if (isset($_POST['login'])) {
                 </div>
                 <ul class="nav navbar-nav">
                     <li class="active"><a href="index.php">Home</a></li>
-                    <li><a href="#">Hotels</a></li>
-                    <li><a href="#">About</a></li>
-                 
                 </ul>
                 <ul class="nav navbar-nav navbar-right">
                     <li><a href="register.php"><span class="glyphicon glyphicon-user"></span> Sign Up</a></li>
                     <li><a href="login.php"><span class="glyphicon glyphicon-log-in"></span> Login</a></li>
-                   
                 </ul>
             </div>
         </nav>
@@ -85,7 +81,7 @@ if (isset($_POST['login'])) {
                         </div>
 
                         <div class="form-group">
-                            <center> <input type="submit" name="login" value="Login" class="btn btn-primary" /></center>
+                            <input type="submit" name="login" value="Login" class="btn btn-primary" />
                         </div>
                     </fieldset>
                 </form>
