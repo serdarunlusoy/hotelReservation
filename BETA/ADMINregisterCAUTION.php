@@ -127,6 +127,10 @@ if (isset($_POST['signup'])) {
                     <p><em>For hotel owners and employees who wish to be represented on our system.</em></p><p></p>
                 </div>
 
+                <div style="color:red;">
+                <div class="radio">
+                    <label><input name="usertype" type="radio" value="2">!!!Admin!!!</label>
+                </div>
                 <span class="text-danger"><?php if (isset($usertype_error)) echo $usertype_error; ?></span>
                 </div>
 

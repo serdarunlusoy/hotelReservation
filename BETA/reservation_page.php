@@ -3,11 +3,15 @@ session_start();
 include_once 'mysqli_connect.php';
 
 $hotel_id = $_GET['hotel_id'];
-if (isset($hotel_id))
-    $_SESSION['hotel_id'] = $hotel_id;
 
 if(isset($_SESSION['usr_id']))
     $user_id = $_SESSION['usr_id'];
+
+    $People = "";
+    $RoomAmount = "";
+    $StartDate = "";
+    $EndDate = "";
+    $total = "0";
 
 
 $hotel_data = mysqli_query($connection, "SELECT * FROM hotels
@@ -19,21 +23,30 @@ while ($cols = mysqli_fetch_array($hotel_data)) {
 }
 
 
+
 if (isset($_POST['TotalPrice'])) {
+    $errormsg = "";
+
     $People = $_POST['People'];
     $RoomAmount = $_POST['RoomAmount'];
     $StartDate = $_POST['StartDate'];
     $EndDate = $_POST['EndDate'];
     $days = round(abs(strtotime($EndDate) - strtotime($StartDate)) / 86400);
     $total = $People * $RoomAmount * $daily_price * $days;
-    $_SESSION['Price'] = $total;
-}else {
-    $People = "";
-    $RoomAmount = "";
-    $StartDate = "";
-    $EndDate = "";
-    $total = "0";
 }
+   if (isset($_POST['Reserve'])){
+    $q = "INSERT INTO `hrsdb`.`reservations`(`People`,`RoomAmount`,`StartDate`,`EndDate`,`Price`,`Hotels_RegistrationId`,
+`users_userId`) VALUES ('".$People."','".$RoomAmount."','".$StartDate."','".$EndDate."','".$total."','".$hotel_id."','"
+.$user_id."')";
+    if (mysqli_query($connection, $q)) {
+            $successmsg = "Reservation Successful! <a href='index.php'>Mainpage</a>";
+        } else {
+            $errormsg = "Error in reservation...Please try again later!";
+        }}
+
+
+
+
 ?>
 
 <!DOCTYPE html>
@@ -55,8 +68,7 @@ if (isset($_POST['TotalPrice'])) {
                 </div>
                 <ul class="nav navbar-nav">
                     <li><a href="index.php">Home</a></li>
-                    <li><a href="#">Hotels</a></li>
-                    <li><a href="#">About</a></li>
+
                 </ul>
                 <ul class="nav navbar-nav navbar-right">
                     <?php if (isset($_SESSION['usr_id'])) { ?>
@@ -82,13 +94,13 @@ if (isset($_POST['TotalPrice'])) {
 
                         <div class="form-group">
                             <label for="name">People</label>
-                            <input type="text" name="People" placeholder="People" value="<?php echo $People ?>" required  class="form-control" />  
+                            <input type="number" name="People" min="1" placeholder="People" value="<?php echo $People ?>" required  class="form-control" />
 
                         </div>
 
                         <div class="form-group">
                             <label for="name">Room Amount</label>
-                            <input type="text" name="RoomAmount" placeholder="Room Amount" value="<?php echo $RoomAmount ?>" required class="form-control" />
+                            <input type="number" min="1" name="RoomAmount" placeholder="Room Amount" value="<?php echo $RoomAmount ?>" required class="form-control" />
 
                         </div>
 
@@ -116,9 +128,9 @@ if (isset($_POST['TotalPrice'])) {
                                 <?php
                                 if (!isset($_SESSION['usr_id'])) {
                                     echo '<center><label>You need to login to make reservation</label></center>';
-                                    echo '<br><center>  <input type="submit" name="Reservation" value="Reservation" formaction="reservation_page_process.php"  class="btn btn-primary disabled" /></center></br>';
+                                    echo '<br><center>  <input type="submit" name="Reserve" value="Reservation" formaction="reservation_page.php?hotel_id='.$hotel_id.'"  class="btn btn-primary disabled" /></center></br>';
                                 } else
-                                    echo '<br><center>  <input type="submit" name="Reservation" value="Reservation" formaction="reservation_page_process.php"  class="btn btn-primary" /></center></br>';
+                                    echo '<br><center>  <input type="submit" name="Reserve" value="Reservation" formaction="reservation_page.php?hotel_id='.$hotel_id.'"  class="btn btn-primary" /></center></br>';
                                 ?>
 
                         </div>
@@ -126,6 +138,16 @@ if (isset($_POST['TotalPrice'])) {
 
 
                     </fieldset>
+                  <span class="text-success"><?php
+                      if (isset($successmsg)) {
+                          echo $successmsg;
+                      }
+                      ?></span>
+                  <span class="text-danger"><?php
+                      if (isset($errormsg)) {
+                          echo $errormsg;
+                      }
+                      ?></span>
 
 
             </div>

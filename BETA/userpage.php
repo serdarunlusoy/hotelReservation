@@ -5,11 +5,11 @@ include_once 'mysqli_connect.php';
 if (!isset($_SESSION['usr_id'])) {
     header("Location: login.php");
 }
- 
 
 
 
-   
+
+
 $user_id = $_SESSION['usr_id'];
 
 $reservation_data = mysqli_query($connection, "SELECT * FROM reservations
@@ -37,9 +37,6 @@ $reservation_data = mysqli_query($connection, "SELECT * FROM reservations
                 </div>
                 <ul class="nav navbar-nav">
                     <li><a href="index.php">Home</a></li>
-                    <li><a href="#">Hotels</a></li>
-                    <li><a href="#">About</a></li>
-                    <li><a href="#">Profile</a></li>     
                 </ul>
                 <ul class="nav navbar-nav navbar-right">
                     <?php if (isset($_SESSION['usr_id'])) { ?>
@@ -49,7 +46,7 @@ $reservation_data = mysqli_query($connection, "SELECT * FROM reservations
                     <?php } else { ?>
                         <li><a href="register.php"><span class="glyphicon glyphicon-user"></span> Sign Up</a></li>
                         <li><a href="login.php"><span class="glyphicon glyphicon-log-in"></span> Login</a></li>
-                        
+
                     <?php } ?>
                 </ul>
             </div>
@@ -58,7 +55,7 @@ $reservation_data = mysqli_query($connection, "SELECT * FROM reservations
 
     <!--NAVBAR END NAVBAR END NAVBAR END NAVBAR END NAVBAR END NAVBAR END NAVBAR END NAVBAR END NAVBAR END -->
 
-        
+
          <div class="container">
         <div class="row">
             <div class="col-md-4 col-md-offset-4 well">
@@ -67,7 +64,7 @@ $reservation_data = mysqli_query($connection, "SELECT * FROM reservations
                         <legend>Reservation List</legend>
 
                         <div class="form-group">
-                          <?php 
+                          <?php
 
  if(mysqli_num_rows($reservation_data) > 0){ // if there are results
 
@@ -75,7 +72,7 @@ $reservation_data = mysqli_query($connection, "SELECT * FROM reservations
       <table class='table table-hover' style='max-width: none'>
         <thead>
           <tr>
-            
+
             <th>People Amount</th>
             <th>Room Amount</th>
             <th>Total Price </th>
@@ -91,7 +88,7 @@ $reservation_data = mysqli_query($connection, "SELECT * FROM reservations
         $reservationId=$results['reservationId'];
 
         echo "            <tr>
-              
+
               <td>".$results['People']."</td>
               <td>".$results['RoomAmount']."</td>
               <td>€".$results['Price']."</td>
@@ -103,7 +100,7 @@ $reservation_data = mysqli_query($connection, "SELECT * FROM reservations
             </tr>";
       }
       echo "          </tbody>
-      
+
         </table>
     </div>";
 
@@ -113,7 +110,7 @@ $reservation_data = mysqli_query($connection, "SELECT * FROM reservations
     }
 
                           ?>
-                            
+
                         </div>
                     </fieldset>
                     </form>
@@ -124,7 +121,7 @@ $reservation_data = mysqli_query($connection, "SELECT * FROM reservations
 
             </div>
         </div>
-        
-        
+
+
 </body>
 </html>

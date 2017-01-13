@@ -3,7 +3,7 @@
   include_once 'mysqli_connect.php';
 
   $user_id = $_SESSION['usr_id'];
-  $redirectToHotelReg = false;
+  $canReg = false;
 
 
 
@@ -11,11 +11,15 @@
     "SELECT * FROM `hotel users` WHERE users_userId='".$user_id."'");
 
   if (mysqli_num_rows($testHasHotel) == 0) {
-    $redirectToHotelReg = true;
+    $canReg = true;
+  } else{
+    while($results = mysqli_fetch_array($testHasHotel)){
+      @$existingHotelID = $results['Hotels_RegistrationId'];
   }
+}
 
+$success = false;
 
-$error = false;
 if (isset($_POST['register'])) {
     $hotelName = mysqli_real_escape_string($connection, $_POST['hotelName']);
     $hotelInfo = mysqli_real_escape_string($connection, $_POST['hotelInfo']);
@@ -59,6 +63,8 @@ if (isset($_POST['register'])) {
       VALUES ( '".$user_id."', '".$hotel_id."')";
       mysqli_query($connection, $q3);
 
+      $success = true;
+
     }
 
 }
@@ -94,8 +100,6 @@ if (isset($_POST['register'])) {
                 </div>
                 <ul class="nav navbar-nav">
                     <li><a href="index.php">Home</a></li>
-                    <li><a href="#">Hotels</a></li>
-                    <li><a href="#">About</a></li>
                 </ul>
                 <ul class="nav navbar-nav navbar-right">
                     <?php if (isset($_SESSION['usr_id'])) { ?>
@@ -110,6 +114,15 @@ if (isset($_POST['register'])) {
         </nav>
 <!--NAVBAR END NAVBAR END NAVBAR END NAVBAR END NAVBAR END NAVBAR END NAVBAR END NAVBAR END NAVBAR END -->
 
+
+<?php
+
+  if($canReg == false) echo '<div class="alert alert-danger">
+  <strong>Attention!</strong> It seems you already have a hotel registered! See:
+<a href="info_page.php?hotel_id='.$existingHotelID.'" class="alert-link">registered hotel here!</a>
+</div>';
+
+?>
 
 <div class="col-md-10 col-md-offset-1 well">
   <form enctype="multipart/form-data" class="form-horizontal" action="<?php echo $_SERVER['PHP_SELF']; ?>" method="post">
@@ -290,7 +303,7 @@ if (isset($_POST['register'])) {
       <div class="form-group">
         <div class="col-lg-10 col-lg-offset-2">
           <button type="reset" class="btn btn-default">Cancel</button>
-          <button type="submit" name="register" class="btn btn-primary">Submit</button>
+          <button type="submit" name="register" class="btn btn-primary" <?php if($canReg==false) echo "disabled";?> >Submit</button>
         </div>
       </div>
     </fieldset>
@@ -299,3 +312,4 @@ if (isset($_POST['register'])) {
 
 </body>
 </html>
+

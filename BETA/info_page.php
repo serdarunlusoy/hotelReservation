@@ -74,8 +74,6 @@ function has_detail($detail){
                 </div>
                 <ul class="nav navbar-nav">
                     <li><a href="index.php">Home</a></li>
-                    <li><a href="#">Hotels</a></li>
-                    <li><a href="#">About</a></li>
                 </ul>
                 <ul class="nav navbar-nav navbar-right">
                     <?php if (isset($_SESSION['usr_id'])) { ?>

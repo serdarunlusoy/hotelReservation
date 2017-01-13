@@ -19,6 +19,8 @@ $hotel_id = mysqli_real_escape_string($connection, $_SESSION['hotel_id']);
 $user_id = mysqli_real_escape_string($connection, $_SESSION['usr_id']);
 
 
+echo $People;
+
 ?>
 <!DOCTYPE html>
 <html>
@@ -39,8 +41,7 @@ $user_id = mysqli_real_escape_string($connection, $_SESSION['usr_id']);
                 </div>
                 <ul class="nav navbar-nav">
                     <li><a href="index.php">Home</a></li>
-                    <li><a href="#">Hotels</a></li>
-                    <li><a href="#">About</a></li>
+
                 </ul>
                 <ul class="nav navbar-nav navbar-right">
                         <?php if (isset($_SESSION['usr_id'])) { ?>
@@ -54,7 +55,7 @@ $user_id = mysqli_real_escape_string($connection, $_SESSION['usr_id']);
                 </ul>
             </div>
         </nav>
-        
+
     <div class="container">
         <div class="row">
             <div class="col-md-4 col-md-offset-4 well">
@@ -62,9 +63,19 @@ $user_id = mysqli_real_escape_string($connection, $_SESSION['usr_id']);
                     <fieldset>
                         <center><label>Success Reservation!</label></center>
                         <center><br><input type="submit" name="Delete" value="Continue Main Page !" formaction="index.php" class="btn btn-primary" /></br></center>
-                            
-                       
+
+
                     </fieldset>
+                                      <span class="text-success"><?php
+                      if (isset($successmsg)) {
+                          echo $successmsg;
+                      }
+                      ?></span>
+                  <span class="text-danger"><?php
+                      if (isset($errormsg)) {
+                          echo $errormsg;
+                      }
+                      ?></span>
 
 
             </div>

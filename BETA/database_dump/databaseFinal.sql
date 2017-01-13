@@ -23,7 +23,7 @@ USE `hrsdb` ;
 DROP TABLE IF EXISTS `hrsdb`.`hotels` ;
 
 CREATE TABLE IF NOT EXISTS `hrsdb`.`hotels` (
-  `RegistrationId` INT(11) NOT NULL DEFAULT '0',
+  `RegistrationId` INT(11) NOT NULL AUTO_INCREMENT,
   `HotelName` VARCHAR(45) NOT NULL,
   `Phone` VARCHAR(20) NOT NULL,
   `Stars` VARCHAR(1) NOT NULL,
@@ -55,7 +55,6 @@ CREATE TABLE IF NOT EXISTS `hrsdb`.`users` (
   UNIQUE INDEX `email_UNIQUE` (`email` ASC),
   UNIQUE INDEX `userId_UNIQUE` (`userId` ASC))
 ENGINE = InnoDB
-AUTO_INCREMENT = 2
 DEFAULT CHARACTER SET = utf8;
 
 

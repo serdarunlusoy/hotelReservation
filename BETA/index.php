@@ -24,15 +24,14 @@ include_once 'mysqli_connect.php';
                 </div>
                 <ul class="nav navbar-nav">
                     <li class="active"><a href="index.php">Home</a></li>
-                    <li><a href="#">Hotels</a></li>
-                    <li><a href="#">About</a></li>
+
                 </ul>
                 <ul class="nav navbar-nav navbar-right">
                     <?php if (isset($_SESSION['usr_id'])) { ?>
                         <li><p class="navbar-text">Signed in as <?php echo $_SESSION['usr_email']; ?></p></li>
                         <li><a href="logout.php"><span class="glyphicon glyphicon-log-out"> </span> Log Out</a></li>
                         <li><a href="userpage.php"><span class="glyphicon glyphicon-user"> </span> Profile</a></li>
-                        
+
                     <?php } else { ?>
                         <li><a href="register.php"><span class="glyphicon glyphicon-user"></span> Sign Up</a></li>
                         <li><a href="login.php"><span class="glyphicon glyphicon-user"></span> Login</a></li>
@@ -62,6 +61,9 @@ include_once 'mysqli_connect.php';
             </form>
             <!--SEARCH END SEARCH END SEARCH END SEARCH END SEARCH END SEARCH END SEARCH END SEARCH -->
         </div>
+		
+		Created by - SE301, Group 12
+		
        Welcome to the Hotel Reservation System!You can find your hotel just by searching it's name or district.Give it a try!Just type something in the box above!
 
 
